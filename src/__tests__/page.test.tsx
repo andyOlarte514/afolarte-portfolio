@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { render } from "@testing-library/react";
 
 // Placeholder — replace with actual page component import once built
 describe("Portfolio", () => {

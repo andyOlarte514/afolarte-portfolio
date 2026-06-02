@@ -1,0 +1,5 @@
+#!/bin/sh
+if grep -qi "co-authored-by.*claude\|co-authored-by.*anthropic" "$1"; then
+  echo "ERROR: Claude co-authorship is not allowed in commits."
+  exit 1
+fi
