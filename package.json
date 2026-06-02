@@ -52,5 +52,9 @@
     "ts-jest": "^29.4.11",
     "typescript": "^5"
   },
+  "resolutions": {
+    "glob": "^11.0.0",
+    "inflight": "npm:lru-cache@^10.0.0"
+  },
   "packageManager": "yarn@4.16.0"
 }
