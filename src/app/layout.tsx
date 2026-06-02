@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+
+import Navbar from "@/components/organisms/Navbar";
+
 import "./globals.css";
 
 const geistSans = Geist({
@@ -47,7 +50,11 @@ export default function RootLayout({
         />
       </head>
       <body className="flex min-h-full flex-col bg-background text-foreground">
-        {children}
+        <Navbar />
+        <main>{children}</main>
+        <footer className="py-6 text-center text-sm text-muted-foreground">
+          Andy Olarte — {new Date().getFullYear()}
+        </footer>
       </body>
     </html>
   );
