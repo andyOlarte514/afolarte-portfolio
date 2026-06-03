@@ -16,6 +16,8 @@ const config = {
     "!src/**/*.d.ts",
     "!src/**/*.stories.{ts,tsx}",
     "!src/app/**", // pages/layouts covered by E2E, not unit tests
+    "!src/types/**", // pure TypeScript interfaces — no runtime code, v8 can't cover them
+    "!src/components/ui/**", // shadcn/ui generated components — third-party, not authored code
   ],
   coverageThreshold: {
     global: {
