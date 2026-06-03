@@ -117,3 +117,55 @@ test.describe("Navbar transparent/solid transition", () => {
     await expect(page.locator("header")).toHaveClass(/bg-background/);
   });
 });
+
+test.describe("Hero section content", () => {
+  test.use({ viewport: { width: 1280, height: 720 } });
+
+  test("displays Andy's full name in h1 heading", async ({ page }) => {
+    await page.goto("/");
+    await expect(page.getByRole("heading", { level: 1 })).toContainText(
+      "Andy Francisco Olarte Cardona",
+    );
+  });
+
+  test("displays Senior Frontend / Full-Stack Engineer title", async ({ page }) => {
+    await page.goto("/");
+    await expect(page.getByText("Senior Frontend / Full-Stack Engineer")).toBeVisible();
+  });
+
+  test("displays NVIDIA role badge", async ({ page }) => {
+    await page.goto("/");
+    await expect(page.getByText("NVIDIA")).toBeVisible();
+  });
+
+  test("displays Mekan role badge", async ({ page }) => {
+    await page.goto("/");
+    await expect(page.getByText("Mekan")).toBeVisible();
+  });
+
+  test("displays bio text containing '10+'", async ({ page }) => {
+    await page.goto("/");
+    await expect(page.getByText(/10\+/)).toBeVisible();
+  });
+
+  test("displays photo placeholder or image in hero section", async ({ page }) => {
+    await page.goto("/");
+    // AO initials placeholder is visible when no real photo is provided
+    await expect(page.locator("#hero").getByText("AO")).toBeVisible();
+  });
+});
+
+test.describe("Hero CTA behavior", () => {
+  test.use({ viewport: { width: 1280, height: 720 } });
+
+  test("Get in touch button is visible in hero section", async ({ page }) => {
+    await page.goto("/");
+    await expect(page.getByRole("button", { name: "Get in touch" })).toBeVisible();
+  });
+
+  test("clicking Get in touch scrolls to contact section", async ({ page }) => {
+    await page.goto("/");
+    await page.getByRole("button", { name: "Get in touch" }).click();
+    await expect(page.locator("#contact")).toBeInViewport();
+  });
+});
