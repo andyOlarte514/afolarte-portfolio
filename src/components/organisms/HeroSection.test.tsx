@@ -40,17 +40,21 @@ describe("HeroSection", () => {
 
   it("renders title text matching /Senior Frontend/", () => {
     render(<HeroSection />);
-    expect(screen.getByText(/Senior Frontend/)).toBeInTheDocument();
+    // The title paragraph contains the full title text
+    const titleEl = screen.getByText(/Senior Frontend \/ Full-Stack Engineer/);
+    expect(titleEl).toBeInTheDocument();
   });
 
   it("renders NVIDIA role badge company text", () => {
     render(<HeroSection />);
-    expect(screen.getByText(/NVIDIA/)).toBeInTheDocument();
+    const nvidiaMatches = screen.getAllByText(/NVIDIA/);
+    expect(nvidiaMatches.length).toBeGreaterThanOrEqual(1);
   });
 
   it("renders Mekan role badge company text", () => {
     render(<HeroSection />);
-    expect(screen.getByText(/Mekan/)).toBeInTheDocument();
+    const mekanMatches = screen.getAllByText(/Mekan/);
+    expect(mekanMatches.length).toBeGreaterThanOrEqual(1);
   });
 
   it("renders bio paragraph containing '10+'", () => {
