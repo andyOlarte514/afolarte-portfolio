@@ -139,7 +139,29 @@ Plans:
   4. Visitor can click to open a pre-filled email to andy.olarte514@gmail.com, open GitHub (andyOlarte514), and open LinkedIn — all in new tabs
   5. Contact section displays "Medellín, Colombia" and an availability status line
 
-**Plans**: TBD
+**Plans**: 6 plans
+Plans:
+**Wave 1**
+
+- [ ] 04-01-PLAN.md — Types + content files (src/types/skills.ts, src/types/contact.ts, src/lib/skillsContent.ts, src/lib/contactContent.ts)
+
+**Wave 2** *(blocked on Wave 1 completion)*
+
+- [ ] 04-02-PLAN.md — SkillBadge atom with 100% unit test coverage (all 5 domains × 2 variants)
+- [ ] 04-03-PLAN.md — ContactIconButton atom with 100% unit test coverage
+
+**Wave 3** *(blocked on Wave 2 completion)*
+
+- [ ] 04-04-PLAN.md — SkillGroup molecule with 100% unit test coverage
+
+**Wave 4** *(blocked on Wave 3 completion)*
+
+- [ ] 04-05-PLAN.md — SkillsSection organism + ContactSection organism with 100% unit test coverage each
+
+**Wave 5** *(blocked on Wave 4 completion)*
+
+- [ ] 04-06-PLAN.md — page.tsx wiring + E2E tests + human visual verification
+
 **UI hint**: yes
 
 ### Phase 5: Polish
@@ -178,10 +200,10 @@ Plans:
 | 1. Layout Foundation | 5/6 | In Progress|  |
 | 2. Hero Section | 5/5 | Complete   | 2026-06-03 |
 | 3. Experience Timeline | 5/5 | Complete   | 2026-06-04 |
-| 4. Skills + Contact | 0/? | Not started | - |
+| 4. Skills + Contact | 0/6 | Not started | - |
 | 5. Polish | 0/? | Not started | - |
 | 6. PDF CV Export | 0/? | Not started | - |
 
 ---
 *Roadmap created: 2026-06-02*
-*Last updated: 2026-06-03 after Phase 3 planning*
+*Last updated: 2026-06-04 after Phase 4 planning*
