@@ -30,16 +30,16 @@
 
 ### Skills Section
 
-- [ ] **SKILLS-01**: Visitor sees skills grouped by domain: Frontend, Backend, Mobile, DevOps/CI, Testing
-- [ ] **SKILLS-02**: Each skill group displays technology names with recognizable icons or badges
-- [ ] **SKILLS-03**: Most-used/expert skills are visually distinguished from secondary skills
+- [x] **SKILLS-01**: Visitor sees skills grouped by domain: Frontend, Backend, Mobile, DevOps/CI, Testing
+- [x] **SKILLS-02**: Each skill group displays technology names with recognizable icons or badges
+- [x] **SKILLS-03**: Most-used/expert skills are visually distinguished from secondary skills
 
 ### Contact Section
 
-- [ ] **CONTACT-01**: Visitor can click to open a pre-filled email to andy.olarte514@gmail.com
-- [ ] **CONTACT-02**: Visitor can navigate to Andy's GitHub profile (andyOlarte514)
-- [ ] **CONTACT-03**: Visitor can navigate to Andy's LinkedIn profile
-- [ ] **CONTACT-04**: Contact section includes location (Medellín, Colombia) and availability status
+- [x] **CONTACT-01**: Visitor can click to open a pre-filled email to andy.olarte514@gmail.com
+- [x] **CONTACT-02**: Visitor can navigate to Andy's GitHub profile (andyOlarte514)
+- [x] **CONTACT-03**: Visitor can navigate to Andy's LinkedIn profile
+- [x] **CONTACT-04**: Contact section includes location (Medellín, Colombia) and availability status
 
 ### SEO & Accessibility
 
@@ -97,13 +97,13 @@
 | EXPER-03 | Phase 3 | Complete |
 | EXPER-04 | Phase 3 | Complete |
 | EXPER-05 | Phase 3 | Complete |
-| SKILLS-01 | Phase 4 | Pending |
-| SKILLS-02 | Phase 4 | Pending |
-| SKILLS-03 | Phase 4 | Pending |
-| CONTACT-01 | Phase 4 | Pending |
-| CONTACT-02 | Phase 4 | Pending |
-| CONTACT-03 | Phase 4 | Pending |
-| CONTACT-04 | Phase 4 | Pending |
+| SKILLS-01 | Phase 4 | Complete |
+| SKILLS-02 | Phase 4 | Complete |
+| SKILLS-03 | Phase 4 | Complete |
+| CONTACT-01 | Phase 4 | Complete |
+| CONTACT-02 | Phase 4 | Complete |
+| CONTACT-03 | Phase 4 | Complete |
+| CONTACT-04 | Phase 4 | Complete |
 | SEO-01 | Phase 5 | Pending |
 | SEO-02 | Phase 5 | Pending |
 | SEO-03 | Phase 5 | Pending |

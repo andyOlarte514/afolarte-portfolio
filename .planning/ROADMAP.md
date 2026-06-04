@@ -143,7 +143,7 @@ Plans:
 Plans:
 **Wave 1**
 
-- [ ] 04-01-PLAN.md — Types + content files (src/types/skills.ts, src/types/contact.ts, src/lib/skillsContent.ts, src/lib/contactContent.ts)
+- [x] 04-01-PLAN.md — Types + content files (src/types/skills.ts, src/types/contact.ts, src/lib/skillsContent.ts, src/lib/contactContent.ts)
 
 **Wave 2** *(blocked on Wave 1 completion)*
 
@@ -200,7 +200,7 @@ Plans:
 | 1. Layout Foundation | 5/6 | In Progress|  |
 | 2. Hero Section | 5/5 | Complete   | 2026-06-03 |
 | 3. Experience Timeline | 5/5 | Complete   | 2026-06-04 |
-| 4. Skills + Contact | 0/6 | Not started | - |
+| 4. Skills + Contact | 1/6 | In Progress|  |
 | 5. Polish | 0/? | Not started | - |
 | 6. PDF CV Export | 0/? | Not started | - |
 
