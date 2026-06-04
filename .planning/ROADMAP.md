@@ -10,7 +10,7 @@
 
 - [ ] **Phase 1: Layout Foundation** - Responsive shell, sticky nav, dark mode, semantic HTML
 - [x] **Phase 2: Hero Section** - Name, title, dual roles, bio, CTA, photo (completed 2026-06-03)
-- [ ] **Phase 3: Experience Timeline** - All 7 positions with impact bullets and visual differentiation
+- [x] **Phase 3: Experience Timeline** - All 7 positions with impact bullets and visual differentiation (completed 2026-06-04)
 - [ ] **Phase 4: Skills + Contact** - Grouped skills with icons and complete contact section
 - [ ] **Phase 5: Polish** - Performance, SEO meta/OG tags, and accessibility audit
 - [ ] **Phase 6: PDF CV Export** - Download CV button generating an up-to-date PDF from portfolio data
@@ -122,7 +122,7 @@ Plans:
 
 **Wave 5** *(blocked on Wave 4 completion)*
 
-- [ ] 03-05-PLAN.md — page.tsx wiring + E2E tests + human visual verification
+- [x] 03-05-PLAN.md — page.tsx wiring + E2E tests + human visual verification
 
 **UI hint**: yes
 
@@ -177,7 +177,7 @@ Plans:
 |-------|----------------|--------|-----------|
 | 1. Layout Foundation | 5/6 | In Progress|  |
 | 2. Hero Section | 5/5 | Complete   | 2026-06-03 |
-| 3. Experience Timeline | 4/5 | In Progress|  |
+| 3. Experience Timeline | 5/5 | Complete   | 2026-06-04 |
 | 4. Skills + Contact | 0/? | Not started | - |
 | 5. Polish | 0/? | Not started | - |
 | 6. PDF CV Export | 0/? | Not started | - |
