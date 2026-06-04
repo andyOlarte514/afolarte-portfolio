@@ -208,3 +208,88 @@ test.describe("Experience section content", () => {
     ).toBeVisible();
   });
 });
+
+test.describe("Skills section content", () => {
+  test.use({ viewport: { width: 1280, height: 720 } });
+
+  test("displays Skills section heading", async ({ page }) => {
+    await page.goto("/");
+    await expect(page.locator("#skills").getByRole("heading", { level: 2 })).toContainText(
+      "Skills",
+    );
+  });
+
+  test("displays all five domain group headers", async ({ page }) => {
+    await page.goto("/");
+    const skillsSection = page.locator("#skills");
+    await expect(skillsSection.getByRole("heading", { level: 3, name: "Frontend" })).toBeVisible();
+    await expect(skillsSection.getByRole("heading", { level: 3, name: "Backend" })).toBeVisible();
+    await expect(skillsSection.getByRole("heading", { level: 3, name: "Mobile" })).toBeVisible();
+    await expect(
+      skillsSection.getByRole("heading", { level: 3, name: "DevOps/CI" }),
+    ).toBeVisible();
+    await expect(skillsSection.getByRole("heading", { level: 3, name: "Testing" })).toBeVisible();
+  });
+
+  test("displays primary skill badges for each domain", async ({ page }) => {
+    await page.goto("/");
+    const skillsSection = page.locator("#skills");
+    await expect(skillsSection.getByText("React").first()).toBeVisible();
+    await expect(skillsSection.getByText("Python").first()).toBeVisible();
+    await expect(skillsSection.getByText("React Native").first()).toBeVisible();
+    await expect(skillsSection.getByText("GitHub Actions").first()).toBeVisible();
+    await expect(skillsSection.getByText("Jest").first()).toBeVisible();
+  });
+
+  test("displays secondary skill badges alongside primary skills", async ({ page }) => {
+    await page.goto("/");
+    const skillsSection = page.locator("#skills");
+    await expect(skillsSection.getByText("Angular").first()).toBeVisible();
+  });
+});
+
+test.describe("Contact section content", () => {
+  test.use({ viewport: { width: 1280, height: 720 } });
+
+  test("displays contact headline", async ({ page }) => {
+    await page.goto("/");
+    await expect(page.locator("#contact").getByText(/Let's build something great/)).toBeVisible();
+  });
+
+  test("displays location 'Medellín, Colombia'", async ({ page }) => {
+    await page.goto("/");
+    await expect(page.locator("#contact").getByText("Medellín, Colombia")).toBeVisible();
+  });
+
+  test("displays availability status", async ({ page }) => {
+    await page.goto("/");
+    await expect(
+      page.locator("#contact").getByText("Open to remote opportunities"),
+    ).toBeVisible();
+  });
+
+  test("displays all three contact icon links", async ({ page }) => {
+    await page.goto("/");
+    const contact = page.locator("#contact");
+    await expect(contact.getByRole("link", { name: "Send Andy an email" })).toBeVisible();
+    await expect(contact.getByRole("link", { name: "Andy's GitHub profile" })).toBeVisible();
+    await expect(contact.getByRole("link", { name: "Andy's LinkedIn profile" })).toBeVisible();
+  });
+
+  test("mail link has correct mailto href", async ({ page }) => {
+    await page.goto("/");
+    const mailLink = page
+      .locator("#contact")
+      .getByRole("link", { name: "Send Andy an email" });
+    await expect(mailLink).toHaveAttribute("href", "mailto:andy.olarte514@gmail.com");
+  });
+
+  test("GitHub link opens in new tab", async ({ page }) => {
+    await page.goto("/");
+    const githubLink = page
+      .locator("#contact")
+      .getByRole("link", { name: "Andy's GitHub profile" });
+    await expect(githubLink).toHaveAttribute("target", "_blank");
+    await expect(githubLink).toHaveAttribute("href", "https://github.com/andyOlarte514");
+  });
+});
