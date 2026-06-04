@@ -1,0 +1,96 @@
+import type { WorkEntry } from "@/types/experience";
+
+export const experienceContent: readonly WorkEntry[] = [
+  {
+    company: "NVIDIA",
+    role: "Frontend Engineer / Full-Stack",
+    dateRange: "Apr 2025 – Present",
+    companyInitials: "NV",
+    avatarColor: "#16a34a",
+    tags: ["Tech Lead", "Full-stack"],
+    bullets: [
+      "Migrated design system from SAP UI5 to Radix UI / shadcn over 46 commits — zero regressions",
+      "Built a custom ESLint plugin from scratch to enforce Clean Architecture boundaries across 4 teams",
+      "Authored the E2E Playwright test suite; team adopted 100% coverage mandate",
+      "1,490+ frontend commits + 219 backend commits (FastAPI / Python) — full-stack scope confirmed",
+      "Architected Thin Controller pattern and built CLI analyzer to enforce it across the backend",
+    ],
+  },
+  {
+    company: "Mekan",
+    role: "Senior Frontend Developer",
+    dateRange: "Aug 2024 – Present",
+    companyInitials: "MK",
+    avatarColor: "#0891b2",
+    tags: ["Concurrent Role"],
+    bullets: [
+      "2,100+ commits across a B2B automotive multi-tenant SaaS platform",
+      "Led frontend for a multi-country dealership management system serving concurrent enterprise clients",
+      "Concurrent with NVIDIA (Apr 2025 – present) — parallel lead-level contributions across two orgs",
+    ],
+  },
+  {
+    company: "Redbee",
+    role: "React Native Developer",
+    dateRange: "Oct 2023 – Jul 2024",
+    companyInitials: "RB",
+    avatarColor: "#dc2626",
+    bullets: [
+      "Built React Native pharmacy app from scratch serving customers in Mexico, Colombia, and Chile",
+      "Integrated location-based mapping features for product ordering and store discovery",
+      "Developed and executed unit tests to ensure high-quality, reliable code",
+      "Collaborated with design teams to implement visual assets, ensuring a polished and user-friendly interface",
+      "Employed best practices in mobile development to deliver a performant and scalable application",
+    ],
+  },
+  {
+    company: "CodeBranch",
+    role: "React Native Developer",
+    dateRange: "Jan 2023 – Jun 2023",
+    companyInitials: "CB",
+    avatarColor: "#7c3aed",
+    bullets: [
+      "Implemented a native NFC module for React Native, bridging React Native and native mobile development",
+      "Led research and implementation of a Firebase-based push notification module for Android and iOS, enhancing app engagement and user experience",
+      "Collaborated with cross-functional teams to ensure timely delivery and integration",
+    ],
+  },
+  {
+    company: "Wolox (Accenture)",
+    role: "React / RN / Angular Developer",
+    dateRange: "Sep 2018 – Jan 2023",
+    companyInitials: "WO",
+    avatarColor: "#d97706",
+    bullets: [
+      "Led research and successful implementation of Firebase push notifications for React Native on Android and iOS platforms",
+      "Built and maintained multiple React, React Native, and Angular applications across a 4.5-year tenure",
+      "Collaborated with cross-functional teams using Scrum, utilizing assertive communication to resolve conflicts and achieve project goals",
+      "Efficient delivery of assigned tasks within distributed teams; consistent teamwork to facilitate goal achievement",
+    ],
+  },
+  {
+    company: "Spec-Atelier",
+    role: "Freelance Frontend",
+    dateRange: "Jan 2021 – Dec 2021",
+    companyInitials: "SA",
+    avatarColor: "#0369a1",
+    bullets: [
+      "Led development of company's high-impact landing page using React with robust unit test coverage",
+      "Delivered a visually stunning, responsive design ensuring code quality through comprehensive testing",
+      "Built cross-browser compatible web applications using HTML, CSS, JavaScript, and React",
+    ],
+  },
+  {
+    company: "Pragma S.A.",
+    role: "Front-End Developer",
+    dateRange: "Jan 2016 – Sep 2018",
+    companyInitials: "PR",
+    avatarColor: "#475569",
+    bullets: [
+      "Pioneered company's landing page rebuild using HubSpot Design tool, transforming the company's online presence",
+      "Built and maintained web applications using HTML, CSS, JavaScript, React, Angular, and Vue",
+      "Developed responsive, cross-browser compatible applications optimized for speed and user experience",
+      "Collaborated with design and backend teams using Git for organized, maintainable codebases",
+    ],
+  },
+] as const;
