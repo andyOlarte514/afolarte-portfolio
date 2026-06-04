@@ -152,7 +152,7 @@ Plans:
 
 **Wave 3** *(blocked on Wave 2 completion)*
 
-- [ ] 04-04-PLAN.md — SkillGroup molecule with 100% unit test coverage
+- [x] 04-04-PLAN.md — SkillGroup molecule with 100% unit test coverage
 
 **Wave 4** *(blocked on Wave 3 completion)*
 
@@ -200,7 +200,7 @@ Plans:
 | 1. Layout Foundation | 5/6 | In Progress|  |
 | 2. Hero Section | 5/5 | Complete   | 2026-06-03 |
 | 3. Experience Timeline | 5/5 | Complete   | 2026-06-04 |
-| 4. Skills + Contact | 1/6 | In Progress|  |
+| 4. Skills + Contact | 4/6 | In Progress|  |
 | 5. Polish | 0/? | Not started | - |
 | 6. PDF CV Export | 0/? | Not started | - |
 
