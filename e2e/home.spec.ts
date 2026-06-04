@@ -169,3 +169,42 @@ test.describe("Hero CTA behavior", () => {
     await expect(page.locator("#contact")).toBeInViewport();
   });
 });
+
+test.describe("Experience section content", () => {
+  test.use({ viewport: { width: 1280, height: 720 } });
+
+  test("displays Experience section heading", async ({ page }) => {
+    await page.goto("/");
+    await expect(
+      page.locator("#experience").getByRole("heading", { level: 2 }),
+    ).toContainText("Experience");
+  });
+
+  test("displays NVIDIA as first experience entry", async ({ page }) => {
+    await page.goto("/");
+    await expect(page.locator("#experience").getByText("NVIDIA").first()).toBeVisible();
+  });
+
+  test("displays Tech Lead badge for NVIDIA entry", async ({ page }) => {
+    await page.goto("/");
+    await expect(page.locator("#experience").getByText("Tech Lead")).toBeVisible();
+  });
+
+  test("displays NVIDIA ESLint plugin differentiator bullet", async ({ page }) => {
+    await page.goto("/");
+    await expect(page.locator("#experience").getByText(/ESLint plugin/)).toBeVisible();
+  });
+
+  test("displays Mekan entry with impact bullet text", async ({ page }) => {
+    await page.goto("/");
+    await expect(page.locator("#experience").getByText("Mekan").first()).toBeVisible();
+    await expect(page.locator("#experience").getByText(/2,100\+/)).toBeVisible();
+  });
+
+  test("displays company avatar elements for visual differentiation", async ({ page }) => {
+    await page.goto("/");
+    await expect(
+      page.locator("#experience").locator("[data-testid='company-avatar']").first(),
+    ).toBeVisible();
+  });
+});
