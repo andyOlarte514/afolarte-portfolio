@@ -110,7 +110,7 @@ Plans:
 
 **Wave 2** *(blocked on Wave 1 completion)*
 
-- [ ] 03-02-PLAN.md — CompanyAvatar atom + EntryBadge atom with 100% unit test coverage
+- [x] 03-02-PLAN.md — CompanyAvatar atom + EntryBadge atom with 100% unit test coverage
 
 **Wave 3** *(blocked on Wave 2 completion)*
 
@@ -177,7 +177,7 @@ Plans:
 |-------|----------------|--------|-----------|
 | 1. Layout Foundation | 5/6 | In Progress|  |
 | 2. Hero Section | 5/5 | Complete   | 2026-06-03 |
-| 3. Experience Timeline | 1/5 | In Progress|  |
+| 3. Experience Timeline | 2/5 | In Progress|  |
 | 4. Skills + Contact | 0/? | Not started | - |
 | 5. Polish | 0/? | Not started | - |
 | 6. PDF CV Export | 0/? | Not started | - |

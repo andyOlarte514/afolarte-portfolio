@@ -25,8 +25,8 @@
 - [x] **EXPER-01**: Visitor sees all 7 work positions listed in reverse-chronological order
 - [x] **EXPER-02**: Each position shows: company name, role title, date range, and 3–5 impact bullet points
 - [x] **EXPER-03**: NVIDIA and Mekan entries prominently show key differentiators (commits, migrations, tooling built)
-- [ ] **EXPER-04**: Experience section is scannable — visitor can identify senior/lead indicators at a glance
-- [ ] **EXPER-05**: Company logos or visual indicators differentiate entries
+- [x] **EXPER-04**: Experience section is scannable — visitor can identify senior/lead indicators at a glance
+- [x] **EXPER-05**: Company logos or visual indicators differentiate entries
 
 ### Skills Section
 
@@ -95,8 +95,8 @@
 | EXPER-01 | Phase 3 | Complete |
 | EXPER-02 | Phase 3 | Complete |
 | EXPER-03 | Phase 3 | Complete |
-| EXPER-04 | Phase 3 | Pending |
-| EXPER-05 | Phase 3 | Pending |
+| EXPER-04 | Phase 3 | Complete |
+| EXPER-05 | Phase 3 | Complete |
 | SKILLS-01 | Phase 4 | Pending |
 | SKILLS-02 | Phase 4 | Pending |
 | SKILLS-03 | Phase 4 | Pending |
