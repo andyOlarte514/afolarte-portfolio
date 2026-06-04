@@ -147,8 +147,8 @@ Plans:
 
 **Wave 2** *(blocked on Wave 1 completion)*
 
-- [ ] 04-02-PLAN.md — SkillBadge atom with 100% unit test coverage (all 5 domains × 2 variants)
-- [ ] 04-03-PLAN.md — ContactIconButton atom with 100% unit test coverage
+- [x] 04-02-PLAN.md — SkillBadge atom with 100% unit test coverage (all 5 domains × 2 variants)
+- [x] 04-03-PLAN.md — ContactIconButton atom with 100% unit test coverage
 
 **Wave 3** *(blocked on Wave 2 completion)*
 
