@@ -1,7 +1,9 @@
 import type React from "react";
 
+import ContactSection from "@/components/organisms/ContactSection";
 import ExperienceTimeline from "@/components/organisms/ExperienceTimeline";
 import HeroSection from "@/components/organisms/HeroSection";
+import SkillsSection from "@/components/organisms/SkillsSection";
 
 export default function Home(): React.ReactNode {
   return (
@@ -14,10 +16,11 @@ export default function Home(): React.ReactNode {
         <ExperienceTimeline />
       </section>
       <section id="skills" className="scroll-mt-20 min-h-screen px-4 py-16">
-        <h2 className="text-xl font-semibold">Skills</h2>
+        <SkillsSection />
       </section>
       <section id="contact" className="scroll-mt-20 min-h-screen px-4 py-16">
-        <h2 className="text-xl font-semibold">Contact</h2>
+        <h2 className="sr-only">Contact</h2>
+        <ContactSection />
       </section>
     </>
   );
