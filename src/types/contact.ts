@@ -9,5 +9,6 @@ export interface ContactContent {
   readonly pitch: string;
   readonly location: string;
   readonly availability: string;
+  readonly phone: string;
   readonly links: readonly [ContactLink, ContactLink, ContactLink];
 }
