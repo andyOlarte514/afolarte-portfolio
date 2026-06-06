@@ -12,13 +12,13 @@ export default function Home(): React.ReactNode {
         <h2 className="sr-only">Hero</h2>
         <HeroSection />
       </section>
-      <section id="experience" className="scroll-mt-20 min-h-screen px-4 py-16">
+      <section id="experience" className="scroll-mt-20 px-4 py-16">
         <ExperienceTimeline />
       </section>
-      <section id="skills" className="scroll-mt-20 min-h-screen px-4 py-16">
+      <section id="skills" className="scroll-mt-20 px-4 py-16">
         <SkillsSection />
       </section>
-      <section id="contact" className="scroll-mt-20 min-h-screen px-4 py-16">
+      <section id="contact" className="scroll-mt-20 px-4 py-16">
         <h2 className="sr-only">Contact</h2>
         <ContactSection />
       </section>
