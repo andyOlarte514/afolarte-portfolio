@@ -209,7 +209,7 @@ Plans:
 
 **Wave 2** *(blocked on Wave 1 completion — both plans run in parallel)*
 
-- [ ] 06-02-PLAN.md — CVDocument atom (PDF document tree, all 5 sections) + 100% unit test coverage
+- [x] 06-02-PLAN.md — CVDocument atom (PDF document tree, all 5 sections) + 100% unit test coverage
 - [ ] 06-03-PLAN.md — DownloadCVButton atom (next/dynamic SSR-safe wrapper) + 100% unit test coverage
 
 **Wave 3** *(blocked on Wave 2 completion)*
@@ -227,7 +227,7 @@ Plans:
 | 3. Experience Timeline | 5/5 | Complete   | 2026-06-04 |
 | 4. Skills + Contact | 6/6 | Complete   | 2026-06-04 |
 | 5. Polish | 5/5 | Complete   | 2026-06-06 |
-| 6. PDF CV Export | 1/4 | In Progress|  |
+| 6. PDF CV Export | 2/4 | In Progress|  |
 
 ---
 *Roadmap created: 2026-06-02*
