@@ -1,3 +1,5 @@
+import type * as React from "react";
+
 let mockLoading = false;
 interface CapturedPDFLinkProps {
   fileName: string | undefined;
@@ -6,14 +8,12 @@ interface CapturedPDFLinkProps {
 let capturedPDFLinkProps: CapturedPDFLinkProps | null = null;
 
 jest.mock("next/dynamic", () => (_importFn: unknown, _opts: unknown) => {
-  const React = require("react") as typeof import("react");
   return function DynamicWrapper(props: {
     children: (params: { loading: boolean }) => React.ReactNode;
     fileName?: string;
     document?: React.ReactElement;
   }): React.ReactElement {
     // Capture props at render time (not at module init time) for spy assertions
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     capturedPDFLinkProps = { fileName: props.fileName, document: props.document };
     const renderer = jest.requireMock("@react-pdf/renderer") as {
       PDFDownloadLink: (props: {
@@ -26,34 +26,33 @@ jest.mock("next/dynamic", () => (_importFn: unknown, _opts: unknown) => {
   };
 });
 
-jest.mock("@react-pdf/renderer", () => {
-  const React = require("react") as typeof import("react");
-  return {
-    PDFDownloadLink: ({
-      children,
-      fileName: _fileName,
-      document: _document,
-    }: {
-      children: (params: { loading: boolean }) => React.ReactNode;
-      fileName?: string;
-      document?: React.ReactElement;
-    }): React.ReactElement => {
-      return React.createElement(React.Fragment, null, children({ loading: mockLoading }));
-    },
-    Document: ({ children }: { children?: React.ReactNode }): React.ReactElement =>
-      React.createElement("div", { "data-testid": "pdf-document" }, children),
-    Page: ({ children }: { children?: React.ReactNode }): React.ReactElement =>
-      React.createElement("div", { "data-testid": "pdf-page" }, children),
-    View: ({ children }: { children?: React.ReactNode }): React.ReactElement =>
-      React.createElement("div", null, children),
-    Text: ({ children }: { children?: React.ReactNode }): React.ReactElement =>
-      React.createElement("span", null, children),
-    StyleSheet: {
-      create: <T extends Record<string, object>>(s: T): T => s,
-    },
-    Font: { register: jest.fn() },
-  };
-});
+jest.mock("@react-pdf/renderer", () => ({
+  PDFDownloadLink: ({
+    children,
+    fileName: _fileName,
+    document: _document,
+  }: {
+    children: (params: { loading: boolean }) => React.ReactNode;
+    fileName?: string;
+    document?: React.ReactElement;
+  }): React.ReactElement => <>{children({ loading: mockLoading })}</>,
+  Document: ({ children }: { children?: React.ReactNode }): React.ReactElement => (
+    <div data-testid="pdf-document">{children}</div>
+  ),
+  Page: ({ children }: { children?: React.ReactNode }): React.ReactElement => (
+    <div data-testid="pdf-page">{children}</div>
+  ),
+  View: ({ children }: { children?: React.ReactNode }): React.ReactElement => (
+    <div>{children}</div>
+  ),
+  Text: ({ children }: { children?: React.ReactNode }): React.ReactElement => (
+    <span>{children}</span>
+  ),
+  StyleSheet: {
+    create: <T extends Record<string, object>>(s: T): T => s,
+  },
+  Font: { register: jest.fn() },
+}));
 
 import { render, screen } from "@testing-library/react";
 

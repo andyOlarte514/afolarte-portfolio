@@ -1,18 +1,17 @@
-jest.mock("@react-pdf/renderer", () => {
-  const React = require("react");
-  return {
-    Document: ({ children }: { children: React.ReactNode }) =>
-      React.createElement("div", { "data-testid": "pdf-document" }, children),
-    Page: ({ children }: { children: React.ReactNode }) =>
-      React.createElement("div", { "data-testid": "pdf-page" }, children),
-    View: ({ children }: { children: React.ReactNode }) =>
-      React.createElement("div", null, children),
-    Text: ({ children }: { children: React.ReactNode }) =>
-      React.createElement("span", null, children),
-    StyleSheet: { create: (s: unknown) => s },
-    Font: { register: jest.fn() },
-  };
-});
+import type * as React from "react";
+
+jest.mock("@react-pdf/renderer", () => ({
+  Document: ({ children }: { children: React.ReactNode }) => (
+    <div data-testid="pdf-document">{children}</div>
+  ),
+  Page: ({ children }: { children: React.ReactNode }) => (
+    <div data-testid="pdf-page">{children}</div>
+  ),
+  View: ({ children }: { children: React.ReactNode }) => <div>{children}</div>,
+  Text: ({ children }: { children: React.ReactNode }) => <span>{children}</span>,
+  StyleSheet: { create: (s: unknown) => s },
+  Font: { register: jest.fn() },
+}));
 
 import { render, screen } from "@testing-library/react";
 

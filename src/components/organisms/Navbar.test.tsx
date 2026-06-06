@@ -1,11 +1,13 @@
+import type * as React from "react";
+
 import { act, render, screen } from "@testing-library/react";
 
 import Navbar from "./Navbar";
 
 // Mock DownloadCVButton to avoid resolving next/dynamic and @react-pdf/renderer in unit test context
-jest.mock("@/components/atoms/DownloadCVButton", () => () => (
-  <div data-testid="download-cv-button" />
-));
+jest.mock("@/components/atoms/DownloadCVButton", () => function MockDownloadCVButton() {
+  return <div data-testid="download-cv-button" />;
+});
 
 // Mock useActiveSection so we can control which section is "active"
 jest.mock("@/hooks/useActiveSection", () => ({
@@ -19,7 +21,7 @@ jest.mock("@/hooks/useTheme", () => ({
 
 // Mock Sheet components to avoid jsdom portal issues (same pattern as MobileNav.test.tsx)
 jest.mock("@/components/ui/sheet", () => {
-  const React = require("react") as typeof import("react");
+  const React = jest.requireActual("react") as typeof React;
 
   const SheetContext = React.createContext<{
     open: boolean;
