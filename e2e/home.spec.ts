@@ -368,3 +368,31 @@ test.describe("Keyboard navigation accessibility", () => {
     await expect(page.getByRole("button", { name: "Toggle dark mode" })).toBeFocused();
   });
 });
+
+test.describe("Download CV button", () => {
+  test.use({ viewport: { width: 1280, height: 720 } });
+
+  test("Download CV button is visible in the navbar on desktop", async ({ page }) => {
+    await page.goto("/");
+    await expect(page.getByRole("button", { name: "Download CV as PDF" })).toBeVisible();
+  });
+
+  test("Download CV button triggers a file download with correct filename", async ({ page }) => {
+    test.setTimeout(60000);
+    await page.goto("/");
+    const button = page.getByRole("button", { name: "Download CV as PDF" });
+    await expect(button).toBeVisible();
+
+    const downloadPromise = page.waitForEvent("download");
+    await button.click();
+    const download = await downloadPromise;
+
+    expect(download.suggestedFilename()).toBe("andy-olarte-cv.pdf");
+  });
+
+  test("Download CV button is accessible via keyboard", async ({ page }) => {
+    await page.goto("/");
+    await page.getByRole("button", { name: "Download CV as PDF" }).focus();
+    await expect(page.getByRole("button", { name: "Download CV as PDF" })).toBeFocused();
+  });
+});
