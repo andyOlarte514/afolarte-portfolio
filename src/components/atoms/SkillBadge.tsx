@@ -34,8 +34,9 @@ const domainClasses: Record<SkillDomain, { primary: string; secondary: string }>
 };
 
 const variantBase: Record<SkillVariant, string> = {
-  primary: "rounded-full border-0 px-3 py-1 text-sm font-normal",
-  secondary: "rounded-full border px-2.5 py-0.5 text-xs font-normal bg-transparent",
+  primary: "inline-flex items-center rounded-full border-0 px-3 py-1 text-sm font-normal",
+  secondary:
+    "inline-flex items-center rounded-full border px-2.5 py-1 text-xs font-normal bg-transparent",
 };
 
 export default function SkillBadge({ label, domain, variant }: SkillBadgeProps): React.ReactNode {
