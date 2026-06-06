@@ -183,7 +183,7 @@ Plans:
 - [x] 05-01-PLAN.md — layout.tsx metadata extension (metadataBase + OG + Twitter) + opengraph-image.tsx route
 - [x] 05-02-PLAN.md — ContactIconButton.tsx a11y fix (single focus stop) + ContactIconButton.test.tsx tabIndex assertion
 - [x] 05-03-PLAN.md — Human-gate (real photo) + HeroPhoto.tsx preload={true} + HeroPhoto.test.tsx guard
-- [ ] 05-04-PLAN.md — lighthouserc.json + ci.yml Lighthouse CI steps (LHCI @0.15.1)
+- [x] 05-04-PLAN.md — lighthouserc.json + ci.yml Lighthouse CI steps (LHCI @0.15.1)
 
 **Wave 2** *(blocked on Wave 1 completion)*
 
@@ -212,7 +212,7 @@ Plans:
 | 2. Hero Section | 5/5 | Complete   | 2026-06-03 |
 | 3. Experience Timeline | 5/5 | Complete   | 2026-06-04 |
 | 4. Skills + Contact | 6/6 | Complete   | 2026-06-04 |
-| 5. Polish | 3/5 | In Progress|  |
+| 5. Polish | 4/5 | In Progress|  |
 | 6. PDF CV Export | 0/? | Not started | - |
 
 ---
