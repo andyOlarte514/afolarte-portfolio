@@ -19,6 +19,22 @@ export const metadata: Metadata = {
   title: "Andy Olarte — Senior Frontend Engineer",
   description:
     "Portfolio of Andy Olarte, Senior Frontend / Full-Stack Engineer with 10+ years of experience building scalable web applications.",
+  metadataBase: new URL(
+    process.env["NEXT_PUBLIC_SITE_URL"] ?? "https://andyolarte.dev"
+  ),
+  openGraph: {
+    type: "website",
+    title: "Andy Olarte — Senior Frontend Engineer",
+    description:
+      "Portfolio of Andy Olarte, Senior Frontend / Full-Stack Engineer with 10+ years of experience building scalable web applications.",
+    url: "/",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Andy Olarte — Senior Frontend Engineer",
+    description:
+      "Portfolio of Andy Olarte, Senior Frontend / Full-Stack Engineer with 10+ years of experience building scalable web applications.",
+  },
 };
 
 export default function RootLayout({
