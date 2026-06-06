@@ -1,20 +1,28 @@
 let mockLoading = false;
+interface CapturedPDFLinkProps {
+  fileName: string | undefined;
+  document: React.ReactElement | undefined;
+}
+let capturedPDFLinkProps: CapturedPDFLinkProps | null = null;
 
 jest.mock("next/dynamic", () => (_importFn: unknown, _opts: unknown) => {
   const React = require("react") as typeof import("react");
-  const { PDFDownloadLink } = jest.requireMock("@react-pdf/renderer") as {
-    PDFDownloadLink: (props: {
-      children: (params: { loading: boolean }) => React.ReactNode;
-      fileName?: string;
-      document?: React.ReactElement;
-    }) => React.ReactElement;
-  };
   return function DynamicWrapper(props: {
     children: (params: { loading: boolean }) => React.ReactNode;
     fileName?: string;
     document?: React.ReactElement;
   }): React.ReactElement {
-    return PDFDownloadLink(props);
+    // Capture props at render time (not at module init time) for spy assertions
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+    capturedPDFLinkProps = { fileName: props.fileName, document: props.document };
+    const renderer = jest.requireMock("@react-pdf/renderer") as {
+      PDFDownloadLink: (props: {
+        children: (params: { loading: boolean }) => React.ReactNode;
+        fileName?: string;
+        document?: React.ReactElement;
+      }) => React.ReactElement;
+    };
+    return renderer.PDFDownloadLink(props);
   };
 });
 
@@ -116,46 +124,24 @@ describe("DownloadCVButton", () => {
   });
 
   // General: PDFDownloadLink invocation
+  // Tests 10 and 11 use capturedPDFLinkProps — the DynamicWrapper mock captures props at render time
+  // into this module-level variable so we can inspect them after render.
 
   it("Test 10: PDFDownloadLink is called with fileName='andy-olarte-cv.pdf'", () => {
-    const { PDFDownloadLink } = jest.requireMock("@react-pdf/renderer") as {
-      PDFDownloadLink: jest.Mock;
-    };
-    jest.spyOn(PDFDownloadLink, "call");
-
-    // Use a spy on the mock itself
-    const mockRenderer = jest.requireMock("@react-pdf/renderer") as {
-      PDFDownloadLink: jest.Mock;
-    };
-    const originalImpl = mockRenderer.PDFDownloadLink;
-    const spy = jest.fn(originalImpl);
-    mockRenderer.PDFDownloadLink = spy;
-
+    capturedPDFLinkProps = null;
     render(<DownloadCVButton />);
-
-    expect(spy).toHaveBeenCalledWith(
-      expect.objectContaining({ fileName: "andy-olarte-cv.pdf" }),
-      expect.anything()
-    );
-
-    mockRenderer.PDFDownloadLink = originalImpl;
+    // Type cast: render() triggers DynamicWrapper which sets capturedPDFLinkProps — safe at runtime
+    const captured = capturedPDFLinkProps as CapturedPDFLinkProps | null;
+    expect(captured).not.toBeNull();
+    expect(captured?.fileName).toBe("andy-olarte-cv.pdf");
   });
 
   it("Test 11: PDFDownloadLink receives a document prop (CVDocument element)", () => {
-    const mockRenderer = jest.requireMock("@react-pdf/renderer") as {
-      PDFDownloadLink: jest.Mock;
-    };
-    const originalImpl = mockRenderer.PDFDownloadLink;
-    const spy = jest.fn(originalImpl);
-    mockRenderer.PDFDownloadLink = spy;
-
+    capturedPDFLinkProps = null;
     render(<DownloadCVButton />);
-
-    expect(spy).toHaveBeenCalledWith(
-      expect.objectContaining({ document: expect.anything() }),
-      expect.anything()
-    );
-
-    mockRenderer.PDFDownloadLink = originalImpl;
+    // Type cast: render() triggers DynamicWrapper which sets capturedPDFLinkProps — safe at runtime
+    const captured = capturedPDFLinkProps as CapturedPDFLinkProps | null;
+    expect(captured).not.toBeNull();
+    expect(captured?.document).toBeDefined();
   });
 });
