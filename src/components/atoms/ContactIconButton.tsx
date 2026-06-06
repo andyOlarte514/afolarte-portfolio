@@ -14,8 +14,14 @@ export default function ContactIconButton({
   icon,
 }: ContactIconButtonProps): React.ReactNode {
   return (
-    <a href={href} aria-label={ariaLabel} target="_blank" rel="noopener noreferrer">
-      <Button variant="outline" size="icon" className="h-11 w-11 rounded-full">
+    <a
+      href={href}
+      aria-label={ariaLabel}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 rounded-full"
+    >
+      <Button variant="outline" size="icon" className="h-11 w-11 rounded-full" tabIndex={-1}>
         {icon}
       </Button>
     </a>
