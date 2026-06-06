@@ -14,14 +14,14 @@ const iconMap: Record<"mail" | "github" | "linkedin", React.ReactNode> = {
 export default function ContactSection(): React.ReactNode {
   return (
     <div className="mx-auto w-full max-w-5xl">
-      <h2 className="mb-4 text-3xl font-bold text-foreground">{contactContent.headline}</h2>
-      <p className="mb-8 text-base leading-relaxed text-muted-foreground">{contactContent.pitch}</p>
+      <h2 className="text-foreground mb-4 text-3xl font-bold">{contactContent.headline}</h2>
+      <p className="text-muted-foreground mb-8 text-base leading-relaxed">{contactContent.pitch}</p>
       <div className="mb-8 flex flex-wrap items-center gap-6">
-        <span className="flex items-center gap-1.5 text-sm text-muted-foreground">
+        <span className="text-muted-foreground flex items-center gap-1.5 text-sm">
           <MapPin className="h-4 w-4" aria-hidden="true" />
           {contactContent.location}
         </span>
-        <span className="flex items-center gap-2 text-sm text-muted-foreground">
+        <span className="text-muted-foreground flex items-center gap-2 text-sm">
           <span className="relative flex h-2.5 w-2.5">
             <span
               className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75"

@@ -84,9 +84,7 @@ test.describe("Responsive layout", () => {
   test("hamburger button is not visible on 1280px viewport", async ({ page }) => {
     await page.setViewportSize({ width: 1280, height: 800 });
     await page.goto("/");
-    await expect(
-      page.getByRole("button", { name: "Open navigation menu" }),
-    ).not.toBeVisible();
+    await expect(page.getByRole("button", { name: "Open navigation menu" })).not.toBeVisible();
   });
 
   test("desktop nav links are visible on 1280px viewport", async ({ page }) => {
@@ -124,7 +122,7 @@ test.describe("Hero section content", () => {
   test("displays Andy's full name in h1 heading", async ({ page }) => {
     await page.goto("/");
     await expect(page.getByRole("heading", { level: 1 })).toContainText(
-      "Andy Francisco Olarte Cardona",
+      "Andy Francisco Olarte Cardona"
     );
   });
 
@@ -174,9 +172,9 @@ test.describe("Experience section content", () => {
 
   test("displays Experience section heading", async ({ page }) => {
     await page.goto("/");
-    await expect(
-      page.locator("#experience").getByRole("heading", { level: 2 }),
-    ).toContainText("Experience");
+    await expect(page.locator("#experience").getByRole("heading", { level: 2 })).toContainText(
+      "Experience"
+    );
   });
 
   test("displays NVIDIA as first experience entry", async ({ page }) => {
@@ -203,7 +201,7 @@ test.describe("Experience section content", () => {
   test("displays company avatar elements for visual differentiation", async ({ page }) => {
     await page.goto("/");
     await expect(
-      page.locator("#experience").locator("[data-testid='company-avatar']").first(),
+      page.locator("#experience").locator("[data-testid='company-avatar']").first()
     ).toBeVisible();
   });
 });
@@ -214,7 +212,7 @@ test.describe("Skills section content", () => {
   test("displays Skills section heading", async ({ page }) => {
     await page.goto("/");
     await expect(page.locator("#skills").getByRole("heading", { level: 2 })).toContainText(
-      "Skills",
+      "Skills"
     );
   });
 
@@ -224,9 +222,7 @@ test.describe("Skills section content", () => {
     await expect(skillsSection.getByRole("heading", { level: 3, name: "Frontend" })).toBeVisible();
     await expect(skillsSection.getByRole("heading", { level: 3, name: "Backend" })).toBeVisible();
     await expect(skillsSection.getByRole("heading", { level: 3, name: "Mobile" })).toBeVisible();
-    await expect(
-      skillsSection.getByRole("heading", { level: 3, name: "DevOps/CI" }),
-    ).toBeVisible();
+    await expect(skillsSection.getByRole("heading", { level: 3, name: "DevOps/CI" })).toBeVisible();
     await expect(skillsSection.getByRole("heading", { level: 3, name: "Testing" })).toBeVisible();
   });
 
@@ -262,9 +258,7 @@ test.describe("Contact section content", () => {
 
   test("displays availability status", async ({ page }) => {
     await page.goto("/");
-    await expect(
-      page.locator("#contact").getByText("Open to remote opportunities"),
-    ).toBeVisible();
+    await expect(page.locator("#contact").getByText("Open to remote opportunities")).toBeVisible();
   });
 
   test("displays all three contact icon links", async ({ page }) => {
@@ -277,9 +271,7 @@ test.describe("Contact section content", () => {
 
   test("mail link has correct mailto href", async ({ page }) => {
     await page.goto("/");
-    const mailLink = page
-      .locator("#contact")
-      .getByRole("link", { name: "Send Andy an email" });
+    const mailLink = page.locator("#contact").getByRole("link", { name: "Send Andy an email" });
     await expect(mailLink).toHaveAttribute("href", "mailto:andy.olarte514@gmail.com");
   });
 
@@ -298,7 +290,7 @@ test.describe("OG / Social metadata", () => {
     await page.goto("/");
     await expect(page.locator('meta[property="og:title"]')).toHaveAttribute(
       "content",
-      "Andy Olarte — Senior Frontend Engineer",
+      "Andy Olarte — Senior Frontend Engineer"
     );
   });
 
@@ -306,7 +298,7 @@ test.describe("OG / Social metadata", () => {
     await page.goto("/");
     await expect(page.locator('meta[property="og:description"]')).toHaveAttribute(
       "content",
-      /10\+ years/,
+      /10\+ years/
     );
   });
 
@@ -319,7 +311,7 @@ test.describe("OG / Social metadata", () => {
     await page.goto("/");
     await expect(page.locator('meta[name="twitter:card"]')).toHaveAttribute(
       "content",
-      "summary_large_image",
+      "summary_large_image"
     );
   });
 
@@ -333,7 +325,7 @@ test.describe("OG / Social metadata", () => {
     await page.goto("/");
     await expect(page.locator('meta[property="og:image"]')).toHaveAttribute(
       "content",
-      /opengraph-image/,
+      /opengraph-image/
     );
   });
 });

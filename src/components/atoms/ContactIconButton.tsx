@@ -19,7 +19,7 @@ export default function ContactIconButton({
       aria-label={ariaLabel}
       target="_blank"
       rel="noopener noreferrer"
-      className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 rounded-full"
+      className="rounded-full focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 focus-visible:outline-none"
     >
       <Button variant="outline" size="icon" className="h-11 w-11 rounded-full" tabIndex={-1}>
         {icon}

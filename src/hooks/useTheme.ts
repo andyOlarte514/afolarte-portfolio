@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 type Theme = "dark" | "light";
 
 function getInitialTheme(): Theme {
+  /* c8 ignore next -- SSR guard: window is always defined in jsdom/browser */
   if (typeof window === "undefined") return "dark";
   const stored = localStorage.getItem("theme");
   if (stored === "dark" || stored === "light") return stored;

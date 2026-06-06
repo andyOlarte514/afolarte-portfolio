@@ -6,9 +6,13 @@ import userEvent from "@testing-library/user-event";
 import MobileNav from "./MobileNav";
 
 // Mock DownloadCVButton to avoid resolving next/dynamic and @react-pdf/renderer in unit test context
-jest.mock("@/components/atoms/DownloadCVButton", () => function MockDownloadCVButton() {
-  return <div data-testid="download-cv-button" />;
-});
+jest.mock(
+  "@/components/atoms/DownloadCVButton",
+  () =>
+    function MockDownloadCVButton() {
+      return <div data-testid="download-cv-button" />;
+    }
+);
 
 // Mock Sheet components — @base-ui/react/dialog uses portals that rely on
 // FloatingPortal which can cause issues in jsdom. We mock at the module boundary
@@ -27,11 +31,7 @@ jest.mock("@/components/ui/sheet", () => {
   }): React.ReactElement | null {
     // Attach onOpenChange to a context so SheetContent can call it
     const contextValue = { open: open ?? false, onOpenChange: onOpenChange ?? ((): void => {}) };
-    return (
-      <SheetContext.Provider value={contextValue}>
-        {children}
-      </SheetContext.Provider>
-    );
+    return <SheetContext.Provider value={contextValue}>{children}</SheetContext.Provider>;
   }
 
   const SheetContext = React.createContext<{

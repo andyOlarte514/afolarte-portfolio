@@ -18,7 +18,7 @@ export default function SkillGroup({
 }: SkillGroupProps): React.ReactNode {
   return (
     <div className="flex flex-col gap-1">
-      <h3 className="text-base font-bold text-foreground">{domain}</h3>
+      <h3 className="text-foreground text-base font-bold">{domain}</h3>
       <div className="mt-3 flex flex-wrap gap-2">
         {primary.map((skill) => (
           <SkillBadge key={skill} label={skill} domain={domainKey} variant="primary" />

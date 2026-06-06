@@ -11,14 +11,14 @@ interface HeroPhotoProps {
 export default function HeroPhoto({ src, alt, initials }: HeroPhotoProps): React.ReactNode {
   if (!src) {
     return (
-      <div className="relative aspect-square w-full max-w-[320px] rounded-2xl bg-primary ring-2 ring-primary ring-offset-2 ring-offset-background flex items-center justify-center">
-        <span className="text-4xl font-bold text-primary-foreground">{initials}</span>
+      <div className="bg-primary ring-primary ring-offset-background relative flex aspect-square w-full max-w-[320px] items-center justify-center rounded-2xl ring-2 ring-offset-2">
+        <span className="text-primary-foreground text-4xl font-bold">{initials}</span>
       </div>
     );
   }
 
   return (
-    <div className="relative aspect-square w-full max-w-[320px] rounded-2xl ring-2 ring-primary ring-offset-2 ring-offset-background overflow-hidden">
+    <div className="ring-primary ring-offset-background relative aspect-square w-full max-w-[320px] overflow-hidden rounded-2xl ring-2 ring-offset-2">
       <Image
         src={src}
         alt={alt}

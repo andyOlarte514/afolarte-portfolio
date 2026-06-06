@@ -12,7 +12,7 @@ export default function TimelineEntry({ entry }: TimelineEntryProps): React.Reac
   return (
     <li className="relative mb-6 pl-8">
       {/* Timeline dot overlapping the vertical line */}
-      <div className="absolute -left-1.5 top-5 h-3 w-3 rounded-full bg-primary" />
+      <div className="bg-primary absolute top-5 -left-1.5 h-3 w-3 rounded-full" />
 
       {/* Entry content: avatar on left, text on right */}
       <div className="flex items-start gap-4">
@@ -20,10 +20,10 @@ export default function TimelineEntry({ entry }: TimelineEntryProps): React.Reac
 
         <div className="flex flex-col gap-1">
           {/* Company name */}
-          <p className="text-sm text-muted-foreground">{entry.company}</p>
+          <p className="text-muted-foreground text-sm">{entry.company}</p>
 
           {/* Role title */}
-          <p className="text-lg font-bold text-foreground">{entry.role}</p>
+          <p className="text-foreground text-lg font-bold">{entry.role}</p>
 
           {/* Role badges (conditional) */}
           {entry.tags && entry.tags.length > 0 && (
@@ -35,15 +35,12 @@ export default function TimelineEntry({ entry }: TimelineEntryProps): React.Reac
           )}
 
           {/* Date range */}
-          <time
-            dateTime=""
-            className="font-mono text-sm text-muted-foreground"
-          >
+          <time dateTime="" className="text-muted-foreground font-mono text-sm">
             {entry.dateRange}
           </time>
 
           {/* Impact bullets */}
-          <ul className="mt-2 flex flex-col gap-1 text-base text-foreground">
+          <ul className="text-foreground mt-2 flex flex-col gap-1 text-base">
             {entry.bullets.map((bullet, i) => (
               <li key={`${entry.company}-bullet-${i}`}>{bullet}</li>
             ))}

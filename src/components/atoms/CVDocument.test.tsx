@@ -29,9 +29,7 @@ describe("CVDocument", () => {
 
   it("Test 3: renders hero title Senior Frontend / Full-Stack Engineer in the header", () => {
     render(<CVDocument />);
-    expect(
-      screen.getByText("Senior Frontend / Full-Stack Engineer")
-    ).toBeInTheDocument();
+    expect(screen.getByText("Senior Frontend / Full-Stack Engineer")).toBeInTheDocument();
   });
 
   it("Test 4: SUMMARY section contains heroContent.bio substring '10+ years building'", () => {

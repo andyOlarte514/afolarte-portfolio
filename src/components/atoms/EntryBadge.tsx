@@ -6,7 +6,7 @@ interface EntryBadgeProps {
 
 export default function EntryBadge({ label }: EntryBadgeProps): React.ReactNode {
   return (
-    <span className="inline-flex items-center rounded-full border border-primary px-2.5 py-0.5 text-xs font-medium text-primary">
+    <span className="border-primary text-primary inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-medium">
       {label}
     </span>
   );

@@ -7,8 +7,8 @@ interface RoleBadgeProps {
 
 export default function RoleBadge({ company, role }: RoleBadgeProps): React.ReactNode {
   return (
-    <span className="inline-flex items-center gap-2 rounded-full border border-border bg-muted px-3 py-1 text-sm font-normal text-card-foreground">
-      <span className="h-2 w-2 flex-shrink-0 rounded-full bg-primary" aria-hidden="true" />
+    <span className="border-border bg-muted text-card-foreground inline-flex items-center gap-2 rounded-full border px-3 py-1 text-sm font-normal">
+      <span className="bg-primary h-2 w-2 flex-shrink-0 rounded-full" aria-hidden="true" />
       <span>{company}</span>
       <span className="text-muted-foreground">·</span>
       <span>{role}</span>

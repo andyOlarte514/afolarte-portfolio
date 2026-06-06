@@ -194,7 +194,6 @@ export default function CVDocument(): React.ReactNode {
   return (
     <Document>
       <Page size="A4" style={styles.page}>
-
         {/* ── LEFT SIDEBAR ── */}
         <View style={styles.sidebar}>
           {/* Photo placeholder */}
@@ -216,12 +215,20 @@ export default function CVDocument(): React.ReactNode {
             <View style={styles.sidebarRule} />
             {skillsContent.map((group) => (
               <View key={group.domainKey} style={{ marginBottom: 6 }}>
-                <Text style={{ fontSize: 8, fontFamily: "Helvetica-Bold", color: TEAL, marginBottom: 2 }}>
+                <Text
+                  style={{
+                    fontSize: 8,
+                    fontFamily: "Helvetica-Bold",
+                    color: TEAL,
+                    marginBottom: 2,
+                  }}
+                >
                   {group.domain}
                 </Text>
                 {group.primary.map((skill) => (
                   <Text key={`${group.domainKey}-${skill}`} style={styles.sidebarBullet}>
-                    {"• "}{skill}
+                    {"• "}
+                    {skill}
                   </Text>
                 ))}
               </View>
@@ -231,7 +238,6 @@ export default function CVDocument(): React.ReactNode {
 
         {/* ── MAIN CONTENT ── */}
         <View style={styles.main}>
-
           {/* Name + tagline + separator */}
           <Text style={styles.name}>{heroContent.name}</Text>
           <Text style={styles.tagline}>{heroContent.title}</Text>
@@ -282,7 +288,6 @@ export default function CVDocument(): React.ReactNode {
               </View>
             ))}
           </View>
-
         </View>
       </Page>
     </Document>

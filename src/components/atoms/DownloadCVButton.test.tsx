@@ -42,9 +42,7 @@ jest.mock("@react-pdf/renderer", () => ({
   Page: ({ children }: { children?: React.ReactNode }): React.ReactElement => (
     <div data-testid="pdf-page">{children}</div>
   ),
-  View: ({ children }: { children?: React.ReactNode }): React.ReactElement => (
-    <div>{children}</div>
-  ),
+  View: ({ children }: { children?: React.ReactNode }): React.ReactElement => <div>{children}</div>,
   Text: ({ children }: { children?: React.ReactNode }): React.ReactElement => (
     <span>{children}</span>
   ),
@@ -72,9 +70,7 @@ describe("DownloadCVButton", () => {
 
   it("Test 2: button has aria-label 'Download CV as PDF' in default (loading=false) state", () => {
     render(<DownloadCVButton />);
-    expect(
-      screen.getByRole("button", { name: "Download CV as PDF" })
-    ).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "Download CV as PDF" })).toBeInTheDocument();
   });
 
   it("Test 3: button text contains 'Download CV' in default state", () => {
@@ -98,9 +94,7 @@ describe("DownloadCVButton", () => {
   it("Test 6: button has aria-label 'Generating PDF, please wait' when loading=true", () => {
     mockLoading = true;
     render(<DownloadCVButton />);
-    expect(
-      screen.getByRole("button", { name: "Generating PDF, please wait" })
-    ).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "Generating PDF, please wait" })).toBeInTheDocument();
   });
 
   it("Test 7: button text contains 'Generating…' (unicode ellipsis) when loading=true", () => {

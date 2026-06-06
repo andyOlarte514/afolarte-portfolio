@@ -19,9 +19,7 @@ export const metadata: Metadata = {
   title: "Andy Olarte — Senior Frontend Engineer",
   description:
     "Portfolio of Andy Olarte, Senior Frontend / Full-Stack Engineer with 10+ years of experience building scalable web applications.",
-  metadataBase: new URL(
-    process.env["NEXT_PUBLIC_SITE_URL"] ?? "https://andyolarte.dev"
-  ),
+  metadataBase: new URL(process.env["NEXT_PUBLIC_SITE_URL"] ?? "https://andyolarte.dev"),
   openGraph: {
     type: "website",
     title: "Andy Olarte — Senior Frontend Engineer",
@@ -65,10 +63,10 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="flex min-h-full flex-col bg-background text-foreground">
+      <body className="bg-background text-foreground flex min-h-full flex-col">
         <Navbar />
         <main>{children}</main>
-        <footer className="py-6 text-center text-sm text-muted-foreground">
+        <footer className="text-muted-foreground py-6 text-center text-sm">
           Andy Olarte — {new Date().getFullYear()}
         </footer>
       </body>

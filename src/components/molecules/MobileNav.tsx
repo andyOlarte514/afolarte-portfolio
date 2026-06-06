@@ -37,7 +37,7 @@ export default function MobileNav({ activeSection }: MobileNavProps): React.Reac
       </Button>
 
       <Sheet open={isOpen} onOpenChange={setIsOpen}>
-        <SheetContent side="right" className="w-72 bg-card">
+        <SheetContent side="right" className="bg-card w-72">
           <SheetTitle className="sr-only">Navigation menu</SheetTitle>
           <nav className="flex flex-col gap-1 pt-8">
             {NAV_LINKS.map(({ href, label }) => (

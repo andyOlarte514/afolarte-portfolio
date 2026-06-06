@@ -34,9 +34,7 @@ describe("CTAButton", () => {
     const user = userEvent.setup();
     const mockScrollIntoView = jest.fn();
     const mockElement = { scrollIntoView: mockScrollIntoView };
-    jest
-      .spyOn(document, "querySelector")
-      .mockReturnValue(mockElement as unknown as Element);
+    jest.spyOn(document, "querySelector").mockReturnValue(mockElement as unknown as Element);
 
     render(<CTAButton label="Get in touch" targetId="contact" />);
     await user.click(screen.getByRole("button", { name: "Get in touch" }));

@@ -12,16 +12,16 @@ export default function HeroSection(): React.ReactNode {
         <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-5 lg:gap-16">
           {/* Text column */}
           <div className="order-1 flex flex-col lg:col-span-3">
-            <h1 className="text-3xl font-bold leading-tight text-foreground md:text-4xl lg:text-5xl">
+            <h1 className="text-foreground text-3xl leading-tight font-bold md:text-4xl lg:text-5xl">
               {heroContent.name}
             </h1>
-            <p className="mt-2 text-xl font-normal text-muted-foreground">{heroContent.title}</p>
+            <p className="text-muted-foreground mt-2 text-xl font-normal">{heroContent.title}</p>
             <div className="mt-4 flex flex-wrap gap-2">
               {heroContent.roles.map((role) => (
                 <RoleBadge key={role.company} company={role.company} role={role.role} />
               ))}
             </div>
-            <p className="mt-5 text-base font-normal leading-relaxed text-muted-foreground">
+            <p className="text-muted-foreground mt-5 text-base leading-relaxed font-normal">
               {heroContent.bio}
             </p>
             <div className="mt-6">

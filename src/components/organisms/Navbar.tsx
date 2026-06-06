@@ -34,7 +34,7 @@ export default function Navbar(): React.ReactNode {
     <header
       className={[
         "fixed top-0 z-50 h-16 w-full transition-all duration-300",
-        isScrolled ? "border-b border-border bg-background backdrop-blur-md" : "bg-transparent",
+        isScrolled ? "border-border bg-background border-b backdrop-blur-md" : "bg-transparent",
       ]
         .filter(Boolean)
         .join(" ")}

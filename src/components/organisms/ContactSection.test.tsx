@@ -5,11 +5,7 @@ import { render, screen } from "@testing-library/react";
 import ContactSection from "./ContactSection";
 
 jest.mock("@/components/atoms/ContactIconButton", () => {
-  return function MockContactIconButton({
-    ariaLabel,
-  }: {
-    ariaLabel: string;
-  }): React.ReactElement {
+  return function MockContactIconButton({ ariaLabel }: { ariaLabel: string }): React.ReactElement {
     return (
       <a data-testid="contact-icon-button" aria-label={ariaLabel} href="#">
         {ariaLabel}

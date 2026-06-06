@@ -5,11 +5,7 @@ import { render, screen } from "@testing-library/react";
 import ExperienceTimeline from "./ExperienceTimeline";
 
 jest.mock("@/components/molecules/TimelineEntry", () => {
-  return function MockTimelineEntry({
-    entry,
-  }: {
-    entry: { company: string };
-  }): React.ReactElement {
+  return function MockTimelineEntry({ entry }: { entry: { company: string } }): React.ReactElement {
     return <li data-testid="timeline-entry">{entry.company}</li>;
   };
 });
