@@ -45,7 +45,7 @@ export const experienceContent: readonly WorkEntry[] = [
   },
   {
     company: "CodeBranch",
-    role: "React Native Developer",
+    role: "React Native & Full Stack Developer",
     dateRange: "Jan 2023 – Jun 2023",
     companyInitials: "CB",
     avatarColor: "#7c3aed",
