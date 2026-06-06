@@ -12,7 +12,7 @@
 - [x] **Phase 2: Hero Section** - Name, title, dual roles, bio, CTA, photo (completed 2026-06-03)
 - [x] **Phase 3: Experience Timeline** - All 7 positions with impact bullets and visual differentiation (completed 2026-06-04)
 - [x] **Phase 4: Skills + Contact** - Grouped skills with icons and complete contact section (completed 2026-06-04)
-- [ ] **Phase 5: Polish** - Performance, SEO meta/OG tags, and accessibility audit
+- [x] **Phase 5: Polish** - Performance, SEO meta/OG tags, and accessibility audit (completed 2026-06-06)
 - [ ] **Phase 6: PDF CV Export** - Download CV button generating an up-to-date PDF from portfolio data
 
 ## Phase Details
@@ -187,7 +187,7 @@ Plans:
 
 **Wave 2** *(blocked on Wave 1 completion)*
 
-- [ ] 05-05-PLAN.md — E2E tests: OG metadata assertions + keyboard navigation accessibility
+- [x] 05-05-PLAN.md — E2E tests: OG metadata assertions + keyboard navigation accessibility
 
 ### Phase 6: PDF CV Export
 
@@ -212,9 +212,9 @@ Plans:
 | 2. Hero Section | 5/5 | Complete   | 2026-06-03 |
 | 3. Experience Timeline | 5/5 | Complete   | 2026-06-04 |
 | 4. Skills + Contact | 6/6 | Complete   | 2026-06-04 |
-| 5. Polish | 4/5 | In Progress|  |
+| 5. Polish | 5/5 | Complete   | 2026-06-06 |
 | 6. PDF CV Export | 0/? | Not started | - |
 
 ---
 *Roadmap created: 2026-06-02*
-*Last updated: 2026-06-06 after Phase 5 planning*
+*Last updated: 2026-06-06 after Phase 5 execution complete*
