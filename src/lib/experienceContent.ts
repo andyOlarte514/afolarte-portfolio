@@ -50,6 +50,7 @@ export const experienceContent: readonly WorkEntry[] = [
     companyInitials: "CB",
     avatarColor: "#7c3aed",
     bullets: [
+      "Led full-stack project built with Next.js and NestJS, owning architecture and delivery end-to-end",
       "Implemented a native NFC module for React Native, bridging React Native and native mobile development",
       "Led research and implementation of a Firebase-based push notification module for Android and iOS, enhancing app engagement and user experience",
       "Collaborated with cross-functional teams to ensure timely delivery and integration",
