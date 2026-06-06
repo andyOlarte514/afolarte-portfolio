@@ -201,7 +201,21 @@ Plans:
   3. PDF layout is professional and readable — company names, roles, dates, and bullets are visually well-structured
   4. Changing the shared portfolio data source (e.g. experience JSON) updates both the rendered page AND the exported PDF without any code duplication
 
-**Plans**: TBD
+**Plans**: 4 plans
+Plans:
+**Wave 1**
+
+- [x] 06-01-PLAN.md — Install @react-pdf/renderer + ContactContent phone field + EducationEntry type + educationContent data + tests
+
+**Wave 2** *(blocked on Wave 1 completion — both plans run in parallel)*
+
+- [ ] 06-02-PLAN.md — CVDocument atom (PDF document tree, all 5 sections) + 100% unit test coverage
+- [ ] 06-03-PLAN.md — DownloadCVButton atom (next/dynamic SSR-safe wrapper) + 100% unit test coverage
+
+**Wave 3** *(blocked on Wave 2 completion)*
+
+- [ ] 06-04-PLAN.md — Navbar + MobileNav wiring + E2E download test + human visual verification
+
 **UI hint**: yes
 
 ## Progress Table
@@ -213,8 +227,8 @@ Plans:
 | 3. Experience Timeline | 5/5 | Complete   | 2026-06-04 |
 | 4. Skills + Contact | 6/6 | Complete   | 2026-06-04 |
 | 5. Polish | 5/5 | Complete   | 2026-06-06 |
-| 6. PDF CV Export | 0/? | Not started | - |
+| 6. PDF CV Export | 1/4 | In Progress|  |
 
 ---
 *Roadmap created: 2026-06-02*
-*Last updated: 2026-06-06 after Phase 5 execution complete*
+*Last updated: 2026-06-06 after Phase 6 planning complete*

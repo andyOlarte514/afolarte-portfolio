@@ -51,9 +51,9 @@
 ### PDF CV Export
 
 - [ ] **PDF-01**: Visitor can click "Download CV" button and receive a PDF file that downloads immediately
-- [ ] **PDF-02**: PDF contains all sections: contact info, professional summary, full work history (7 positions) with impact bullets, skills grouped by domain, and education
+- [x] **PDF-02**: PDF contains all sections: contact info, professional summary, full work history (7 positions) with impact bullets, skills grouped by domain, and education
 - [ ] **PDF-03**: PDF layout matches the visual quality and structure of Andy's existing CV (professional formatting, readable typography, company names + dates clearly separated)
-- [ ] **PDF-04**: PDF content stays in sync with portfolio data — updating the portfolio data source automatically updates the exported PDF (single source of truth)
+- [x] **PDF-04**: PDF content stays in sync with portfolio data — updating the portfolio data source automatically updates the exported PDF (single source of truth)
 
 ## v2 Requirements
 
@@ -109,9 +109,9 @@
 | SEO-03 | Phase 5 | Pending |
 | SEO-04 | Phase 1 | Pending |
 | PDF-01 | Phase 6 | Pending |
-| PDF-02 | Phase 6 | Pending |
+| PDF-02 | Phase 6 | Complete |
 | PDF-03 | Phase 6 | Pending |
-| PDF-04 | Phase 6 | Pending |
+| PDF-04 | Phase 6 | Complete |
 
 **Coverage:**
 - v1 requirements: 28 total
