@@ -54,4 +54,13 @@ describe("ContactIconButton", () => {
     );
     expect(screen.getByTestId("test-icon")).toBeInTheDocument();
   });
+
+  it("inner button has tabIndex -1 to prevent double focus stop", () => {
+    const { container } = render(
+      <ContactIconButton href="mailto:test@test.com" ariaLabel="Test label" icon={testIcon} />,
+    );
+    const anchor = container.firstChild as HTMLAnchorElement;
+    const button = anchor.querySelector("button");
+    expect(button).toHaveAttribute("tabindex", "-1");
+  });
 });
