@@ -11,7 +11,7 @@
 - [ ] **LAYOUT-02**: Navigation header sticks to top on scroll and highlights the active section
 - [ ] **LAYOUT-03**: Site renders correctly on mobile (320px+), tablet (768px+), and desktop (1280px+)
 - [ ] **LAYOUT-04**: Site supports dark mode (system preference + manual toggle)
-- [ ] **LAYOUT-05**: Page loads with no layout shift (CLS < 0.1) and LCP < 2.5s
+- [x] **LAYOUT-05**: Page loads with no layout shift (CLS < 0.1) and LCP < 2.5s
 
 ### Hero Section
 
@@ -87,7 +87,7 @@
 | LAYOUT-02 | Phase 1 | Pending |
 | LAYOUT-03 | Phase 1 | Pending |
 | LAYOUT-04 | Phase 1 | Pending |
-| LAYOUT-05 | Phase 5 | Pending |
+| LAYOUT-05 | Phase 5 | Complete |
 | HERO-01 | Phase 2 | Pending |
 | HERO-02 | Phase 2 | Pending |
 | HERO-03 | Phase 2 | Pending |
