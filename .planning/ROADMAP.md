@@ -176,7 +176,18 @@ Plans:
   3. Every interactive element (nav links, CTA, contact links) is reachable and activatable with keyboard alone, with a visible focus ring
   4. All images have non-empty descriptive `alt` text; all icon-only buttons have an `aria-label`
 
-**Plans**: TBD
+**Plans**: 5 plans
+Plans:
+**Wave 1** *(all four plans run in parallel — no file overlap)*
+
+- [ ] 05-01-PLAN.md — layout.tsx metadata extension (metadataBase + OG + Twitter) + opengraph-image.tsx route
+- [ ] 05-02-PLAN.md — ContactIconButton.tsx a11y fix (single focus stop) + ContactIconButton.test.tsx tabIndex assertion
+- [ ] 05-03-PLAN.md — Human-gate (real photo) + HeroPhoto.tsx preload={true} + HeroPhoto.test.tsx guard
+- [ ] 05-04-PLAN.md — lighthouserc.json + ci.yml Lighthouse CI steps (LHCI @0.15.1)
+
+**Wave 2** *(blocked on Wave 1 completion)*
+
+- [ ] 05-05-PLAN.md — E2E tests: OG metadata assertions + keyboard navigation accessibility
 
 ### Phase 6: PDF CV Export
 
@@ -201,9 +212,9 @@ Plans:
 | 2. Hero Section | 5/5 | Complete   | 2026-06-03 |
 | 3. Experience Timeline | 5/5 | Complete   | 2026-06-04 |
 | 4. Skills + Contact | 6/6 | Complete   | 2026-06-04 |
-| 5. Polish | 0/? | Not started | - |
+| 5. Polish | 0/5 | Not started | - |
 | 6. PDF CV Export | 0/? | Not started | - |
 
 ---
 *Roadmap created: 2026-06-02*
-*Last updated: 2026-06-04 after Phase 4 planning*
+*Last updated: 2026-06-06 after Phase 5 planning*
