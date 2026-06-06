@@ -13,7 +13,7 @@
 - [x] **Phase 3: Experience Timeline** - All 7 positions with impact bullets and visual differentiation (completed 2026-06-04)
 - [x] **Phase 4: Skills + Contact** - Grouped skills with icons and complete contact section (completed 2026-06-04)
 - [x] **Phase 5: Polish** - Performance, SEO meta/OG tags, and accessibility audit (completed 2026-06-06)
-- [ ] **Phase 6: PDF CV Export** - Download CV button generating an up-to-date PDF from portfolio data
+- [x] **Phase 6: PDF CV Export** - Download CV button generating an up-to-date PDF from portfolio data (completed 2026-06-06)
 
 ## Phase Details
 
@@ -214,7 +214,7 @@ Plans:
 
 **Wave 3** *(blocked on Wave 2 completion)*
 
-- [ ] 06-04-PLAN.md — Navbar + MobileNav wiring + E2E download test + human visual verification
+- [x] 06-04-PLAN.md — Navbar + MobileNav wiring + E2E download test + human visual verification
 
 **UI hint**: yes
 
@@ -227,7 +227,7 @@ Plans:
 | 3. Experience Timeline | 5/5 | Complete   | 2026-06-04 |
 | 4. Skills + Contact | 6/6 | Complete   | 2026-06-04 |
 | 5. Polish | 5/5 | Complete   | 2026-06-06 |
-| 6. PDF CV Export | 3/4 | In Progress|  |
+| 6. PDF CV Export | 4/4 | Complete   | 2026-06-06 |
 
 ---
 *Roadmap created: 2026-06-02*
