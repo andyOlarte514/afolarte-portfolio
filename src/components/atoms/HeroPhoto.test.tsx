@@ -18,4 +18,10 @@ describe("HeroPhoto", () => {
     const container = screen.getByText("AO").closest("div");
     expect(container).toHaveClass("rounded-2xl");
   });
+
+  it("img rendered when src is provided does not use deprecated priority prop", () => {
+    render(<HeroPhoto src="/photo.jpg" alt="Andy Olarte" initials="AO" />);
+    const imgElement = screen.getByAltText("Andy Olarte");
+    expect(imgElement).not.toHaveAttribute("priority");
+  });
 });

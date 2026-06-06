@@ -19,7 +19,7 @@ export default function HeroPhoto({ src, alt, initials }: HeroPhotoProps): React
 
   return (
     <div className="relative aspect-square w-full max-w-[320px] rounded-2xl ring-2 ring-primary ring-offset-2 ring-offset-background overflow-hidden">
-      <Image src={src} alt={alt} fill className="object-cover object-top" />
+      <Image src={src} alt={alt} fill preload={true} className="object-cover object-top" />
     </div>
   );
 }
