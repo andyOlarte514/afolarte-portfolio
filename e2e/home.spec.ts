@@ -135,23 +135,22 @@ test.describe("Hero section content", () => {
 
   test("displays NVIDIA role badge", async ({ page }) => {
     await page.goto("/");
-    await expect(page.getByText("NVIDIA")).toBeVisible();
+    await expect(page.locator("#hero").getByText("NVIDIA", { exact: true })).toBeVisible();
   });
 
   test("displays Mekan role badge", async ({ page }) => {
     await page.goto("/");
-    await expect(page.getByText("Mekan")).toBeVisible();
+    await expect(page.locator("#hero").getByText("Mekan", { exact: true })).toBeVisible();
   });
 
   test("displays bio text containing '10+'", async ({ page }) => {
     await page.goto("/");
-    await expect(page.getByText(/10\+/)).toBeVisible();
+    await expect(page.locator("#hero").getByText(/10\+/)).toBeVisible();
   });
 
-  test("displays photo placeholder or image in hero section", async ({ page }) => {
+  test("displays profile photo in hero section", async ({ page }) => {
     await page.goto("/");
-    // AO initials placeholder is visible when no real photo is provided
-    await expect(page.locator("#hero").getByText("AO")).toBeVisible();
+    await expect(page.locator("#hero img")).toBeVisible();
   });
 });
 
@@ -291,5 +290,81 @@ test.describe("Contact section content", () => {
       .getByRole("link", { name: "Andy's GitHub profile" });
     await expect(githubLink).toHaveAttribute("target", "_blank");
     await expect(githubLink).toHaveAttribute("href", "https://github.com/andyOlarte514");
+  });
+});
+
+test.describe("OG / Social metadata", () => {
+  test("og:title meta tag has correct content", async ({ page }) => {
+    await page.goto("/");
+    await expect(page.locator('meta[property="og:title"]')).toHaveAttribute(
+      "content",
+      "Andy Olarte — Senior Frontend Engineer",
+    );
+  });
+
+  test("og:description meta tag has correct content", async ({ page }) => {
+    await page.goto("/");
+    await expect(page.locator('meta[property="og:description"]')).toHaveAttribute(
+      "content",
+      /10\+ years/,
+    );
+  });
+
+  test("og:type is website", async ({ page }) => {
+    await page.goto("/");
+    await expect(page.locator('meta[property="og:type"]')).toHaveAttribute("content", "website");
+  });
+
+  test("twitter:card is summary_large_image", async ({ page }) => {
+    await page.goto("/");
+    await expect(page.locator('meta[name="twitter:card"]')).toHaveAttribute(
+      "content",
+      "summary_large_image",
+    );
+  });
+
+  test("opengraph-image route returns HTTP 200 with content-type image/png", async ({ page }) => {
+    const response = await page.request.get("/opengraph-image");
+    expect(response.status()).toBe(200);
+    expect(response.headers()["content-type"]).toContain("image/png");
+  });
+
+  test("og:image meta tag content matches opengraph-image route", async ({ page }) => {
+    await page.goto("/");
+    await expect(page.locator('meta[property="og:image"]')).toHaveAttribute(
+      "content",
+      /opengraph-image/,
+    );
+  });
+});
+
+test.describe("Keyboard navigation accessibility", () => {
+  test.use({ viewport: { width: 1280, height: 720 } });
+
+  test("NavLink is reachable via keyboard Tab", async ({ page }) => {
+    await page.goto("/");
+    await page.getByRole("link", { name: "Experience" }).first().focus();
+    await expect(page.getByRole("link", { name: "Experience" }).first()).toBeFocused();
+  });
+
+  test("CTAButton is reachable via keyboard Tab", async ({ page }) => {
+    await page.goto("/");
+    await page.getByRole("button", { name: "Get in touch" }).focus();
+    await expect(page.getByRole("button", { name: "Get in touch" })).toBeFocused();
+  });
+
+  test("ContactIconButton anchor is single focus stop — Tab skips inner button", async ({
+    page,
+  }) => {
+    await page.goto("/");
+    await page.getByRole("link", { name: "Send Andy an email" }).focus();
+    await page.keyboard.press("Tab");
+    await expect(page.getByRole("link", { name: "Andy's GitHub profile" })).toBeFocused();
+  });
+
+  test("ThemeToggle is reachable via keyboard Tab", async ({ page }) => {
+    await page.goto("/");
+    await page.getByRole("button", { name: "Toggle dark mode" }).focus();
+    await expect(page.getByRole("button", { name: "Toggle dark mode" })).toBeFocused();
   });
 });
