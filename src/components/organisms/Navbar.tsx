@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 
+import DownloadCVButton from "@/components/atoms/DownloadCVButton";
 import NavLink from "@/components/atoms/NavLink";
 import ThemeToggle from "@/components/atoms/ThemeToggle";
 import MobileNav from "@/components/molecules/MobileNav";
@@ -55,6 +56,7 @@ export default function Navbar(): React.ReactNode {
 
         {/* Right controls */}
         <div className="flex items-center gap-2">
+          <DownloadCVButton />
           <ThemeToggle />
           <MobileNav activeSection={activeSection} />
         </div>

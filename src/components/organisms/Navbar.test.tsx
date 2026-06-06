@@ -2,6 +2,11 @@ import { act, render, screen } from "@testing-library/react";
 
 import Navbar from "./Navbar";
 
+// Mock DownloadCVButton to avoid resolving next/dynamic and @react-pdf/renderer in unit test context
+jest.mock("@/components/atoms/DownloadCVButton", () => () => (
+  <div data-testid="download-cv-button" />
+));
+
 // Mock useActiveSection so we can control which section is "active"
 jest.mock("@/hooks/useActiveSection", () => ({
   useActiveSection: jest.fn().mockReturnValue(""),
@@ -157,5 +162,11 @@ describe("Navbar", () => {
     unmount();
 
     expect(removeEventListenerSpy).toHaveBeenCalledWith("scroll", expect.any(Function));
+  });
+
+  it("renders the DownloadCVButton atom", () => {
+    render(<Navbar />);
+
+    expect(screen.getByTestId("download-cv-button")).toBeInTheDocument();
   });
 });

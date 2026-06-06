@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTitle } from "@/components/ui/sheet";
+import DownloadCVButton from "@/components/atoms/DownloadCVButton";
 import NavLink from "@/components/atoms/NavLink";
 
 const NAV_LINKS = [
@@ -48,6 +49,9 @@ export default function MobileNav({ activeSection }: MobileNavProps): React.Reac
                 onClick={handleLinkClick}
               />
             ))}
+            <div className="mt-1 w-full py-3">
+              <DownloadCVButton />
+            </div>
           </nav>
         </SheetContent>
       </Sheet>

@@ -3,6 +3,11 @@ import userEvent from "@testing-library/user-event";
 
 import MobileNav from "./MobileNav";
 
+// Mock DownloadCVButton to avoid resolving next/dynamic and @react-pdf/renderer in unit test context
+jest.mock("@/components/atoms/DownloadCVButton", () => () => (
+  <div data-testid="download-cv-button" />
+));
+
 // Mock Sheet components — @base-ui/react/dialog uses portals that rely on
 // FloatingPortal which can cause issues in jsdom. We mock at the module boundary
 // to render children inline when open=true, matching the component's behavior contract.
@@ -139,5 +144,17 @@ describe("MobileNav", () => {
     const skillsLink = screen.getByRole("link", { name: "Skills" });
     expect(skillsLink.className).not.toContain("text-indigo-500");
     expect(skillsLink.className).toContain("text-foreground");
+  });
+
+  it("renders DownloadCVButton inside the Sheet drawer when open", async () => {
+    render(<MobileNav activeSection="" />);
+
+    // Button not visible before Sheet is opened
+    expect(screen.queryByTestId("download-cv-button")).not.toBeInTheDocument();
+
+    const hamburger = screen.getByRole("button", { name: /open navigation menu/i });
+    await userEvent.click(hamburger);
+
+    expect(screen.getByTestId("download-cv-button")).toBeInTheDocument();
   });
 });
