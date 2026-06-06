@@ -13,6 +13,6 @@ export const heroContent: HeroContent = {
   photo: {
     alt: "Andy Francisco Olarte Cardona — profile photo",
     initials: "AO",
-    // src intentionally omitted (not set to undefined) to satisfy exactOptionalPropertyTypes
+    src: "/andy-olarte.jpeg",
   },
 } as const;
