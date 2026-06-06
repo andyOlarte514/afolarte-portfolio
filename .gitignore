@@ -43,3 +43,8 @@ next-env.d.ts
 # local AI/editor context
 CLAUDE.md
 .planning/
+
+# testing artifacts
+/playwright-report/
+/test-results/
+/.lighthouseci/
