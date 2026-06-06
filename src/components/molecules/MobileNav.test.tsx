@@ -1,4 +1,4 @@
-import type * as React from "react";
+import type * as ReactNS from "react";
 
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
@@ -14,7 +14,7 @@ jest.mock("@/components/atoms/DownloadCVButton", () => function MockDownloadCVBu
 // FloatingPortal which can cause issues in jsdom. We mock at the module boundary
 // to render children inline when open=true, matching the component's behavior contract.
 jest.mock("@/components/ui/sheet", () => {
-  const React = jest.requireActual("react") as typeof React;
+  const React = jest.requireActual("react") as typeof ReactNS;
 
   function Sheet({
     open,

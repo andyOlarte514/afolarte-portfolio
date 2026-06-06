@@ -1,4 +1,4 @@
-import type * as React from "react";
+import type * as ReactNS from "react";
 
 import { act, render, screen } from "@testing-library/react";
 
@@ -21,7 +21,7 @@ jest.mock("@/hooks/useTheme", () => ({
 
 // Mock Sheet components to avoid jsdom portal issues (same pattern as MobileNav.test.tsx)
 jest.mock("@/components/ui/sheet", () => {
-  const React = jest.requireActual("react") as typeof React;
+  const React = jest.requireActual("react") as typeof ReactNS;
 
   const SheetContext = React.createContext<{
     open: boolean;
