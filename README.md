@@ -82,7 +82,7 @@ yarn type-check                  # tsc --noEmit
 
 Every push/PR to `main` runs, in order: type-check → lint → format check → unit tests (100% branches/functions/lines/statements) → build → Playwright E2E (Chromium + Mobile Chrome) → Lighthouse CI.
 
-Locally, Husky + lint-staged run ESLint + Prettier on every commit; `commit-msg` blocks any `Co-Authored-By: Claude`/`Anthropic` trailer.
+Locally, Husky + lint-staged run ESLint + Prettier on every commit.
 
 Non-negotiables (see `CLAUDE.md`):
 
