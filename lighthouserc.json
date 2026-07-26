@@ -4,7 +4,10 @@
       "startServerCommand": "yarn start",
       "startServerReadyPattern": "Ready in",
       "url": ["http://localhost:3000"],
-      "numberOfRuns": 3
+      "numberOfRuns": 5,
+      "settings": {
+        "throttlingMethod": "provided"
+      }
     },
     "assert": {
       "assertions": {
