@@ -45,6 +45,19 @@ beforeEach(() => {
 });
 
 describe("useTheme", () => {
+  it("returns the deterministic default theme on first render, before the mount effect resolves the real theme", () => {
+    setupMatchMedia(false);
+    localStorageMock.setItem("theme", "light");
+    const { result } = renderHook(() => useTheme());
+
+    // First render (pre-effect) must be SSR-safe and identical regardless of
+    // stored/system preference — this is what prevents the hydration mismatch.
+    expect(result.current.theme).toBe("dark");
+
+    act(() => {});
+    expect(result.current.theme).toBe("light");
+  });
+
   it("initializes to dark theme when localStorage is empty and system prefers dark", () => {
     setupMatchMedia(true);
     const { result } = renderHook(() => useTheme());
