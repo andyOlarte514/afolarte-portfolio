@@ -1,6 +1,5 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
 import { Download, Loader2 } from "lucide-react";
 import dynamic from "next/dynamic";
 
@@ -15,50 +14,27 @@ const PDFDownloadLink = dynamic(
 const cvDocument = <CVDocument />;
 
 function DownloadButtonContent({ loading }: { loading: boolean }): React.ReactNode {
-  const buttonRef = useRef<HTMLButtonElement>(null);
-  // `isFocused` is updated exclusively via onFocus/onBlur event handlers
-  // (never read/written during render via a ref) so it always reflects the
-  // button's focus state up to and including the instant right before a
-  // render commits the `disabled` attribute.
-  const [isFocused, setIsFocused] = useState(false);
-  const [prevLoading, setPrevLoading] = useState(loading);
-  const [wasFocusedBeforeLoading, setWasFocusedBeforeLoading] = useState(false);
-
-  // React-sanctioned "adjust state during render" pattern: compare the
-  // incoming prop to state (not a ref) to detect the false-to-true loading
-  // transition synchronously, before React commits the `disabled` attribute
-  // and the browser auto-blurs the element. By the time a useEffect for this
-  // transition would run, the browser has already blurred the element, so
-  // this capture cannot be deferred to an effect.
-  if (loading !== prevLoading) {
-    setPrevLoading(loading);
-    if (loading) {
-      setWasFocusedBeforeLoading(isFocused);
-    }
-  }
-
-  // Intentionally does not reset `wasFocusedBeforeLoading` after consuming it:
-  // the render-phase adjustment above always overwrites it on the *next*
-  // false-to-true loading transition (based on the then-current `isFocused`),
-  // so a stale `true` value here cannot cause a repeat/unwanted focus() call —
-  // this effect only re-runs when `loading` or `wasFocusedBeforeLoading`
-  // actually change.
-  useEffect(() => {
-    if (!loading && wasFocusedBeforeLoading) {
-      buttonRef.current?.focus();
-    }
-  }, [loading, wasFocusedBeforeLoading]);
-
+  // Use `aria-disabled` (via Base UI's `focusableWhenDisabled`) instead of the
+  // native `disabled` HTML attribute. A natively `disabled` control is
+  // programmatically un-focusable per the HTML spec: if it is focused right
+  // as `loading` flips true, the browser force-blurs it immediately, AND any
+  // focus() attempt landing in that same instant (e.g. a fast keyboard-nav or
+  // test-automation focus call racing the ~150ms loading window) silently
+  // no-ops with no focus/blur event ever firing — there is no reliable signal
+  // to "restore" focus from afterward. Keeping the element natively
+  // focusable throughout eliminates the race entirely rather than reacting
+  // to it: the button is never removed from the tab order, so it can never
+  // be force-blurred and a focus() call can never silently fail. Interaction
+  // (click / Enter / Space) is still blocked by Base UI's built-in
+  // `disabled` handling in this mode.
   return (
     <Button
-      ref={buttonRef}
       variant="outline"
       size="sm"
       disabled={loading}
+      focusableWhenDisabled
       aria-label={loading ? "Generating PDF, please wait" : "Download CV as PDF"}
-      className="h-9 gap-1"
-      onFocus={() => setIsFocused(true)}
-      onBlur={() => setIsFocused(false)}
+      className="h-9 gap-1 aria-disabled:pointer-events-none aria-disabled:opacity-50"
     >
       {loading ? (
         <Loader2 className="size-4 animate-spin" aria-hidden="true" />
