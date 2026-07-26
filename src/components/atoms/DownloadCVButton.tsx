@@ -11,9 +11,11 @@ const PDFDownloadLink = dynamic(
   { ssr: false }
 );
 
+const cvDocument = <CVDocument />;
+
 export default function DownloadCVButton(): React.ReactNode {
   return (
-    <PDFDownloadLink document={<CVDocument />} fileName="andy-olarte-cv.pdf">
+    <PDFDownloadLink document={cvDocument} fileName="andy-olarte-cv.pdf">
       {(params: { loading: boolean }) => (
         <Button
           variant="outline"
