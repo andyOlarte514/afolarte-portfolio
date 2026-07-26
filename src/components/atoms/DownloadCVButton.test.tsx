@@ -52,7 +52,7 @@ jest.mock("@react-pdf/renderer", () => ({
   Font: { register: jest.fn() },
 }));
 
-import { render, screen } from "@testing-library/react";
+import { act, render, screen } from "@testing-library/react";
 
 import DownloadCVButton from "./DownloadCVButton";
 
@@ -78,9 +78,11 @@ describe("DownloadCVButton", () => {
     expect(screen.getByText("Download CV")).toBeInTheDocument();
   });
 
-  it("Test 4: button is NOT disabled when loading=false", () => {
+  it("Test 4: button is NOT aria-disabled when loading=false, and is never natively disabled", () => {
     render(<DownloadCVButton />);
-    expect(screen.getByRole("button")).not.toBeDisabled();
+    const button = screen.getByRole("button");
+    expect(button).toHaveAttribute("aria-disabled", "false");
+    expect(button).not.toBeDisabled();
   });
 
   it("Test 5: Download icon is present (aria-hidden on icon) in loading=false state", () => {
@@ -103,10 +105,15 @@ describe("DownloadCVButton", () => {
     expect(screen.getByText("Generating…")).toBeInTheDocument();
   });
 
-  it("Test 8: button IS disabled when loading=true", () => {
+  it("Test 8: button IS aria-disabled when loading=true, but remains natively focusable (never gets the native disabled attribute)", () => {
     mockLoading = true;
     render(<DownloadCVButton />);
-    expect(screen.getByRole("button")).toBeDisabled();
+    const button = screen.getByRole("button");
+    expect(button).toHaveAttribute("aria-disabled", "true");
+    // Intentionally NOT natively `disabled` — see DownloadCVButton.tsx comment:
+    // native `disabled` force-blurs a focused element and makes `.focus()`
+    // silently no-op mid-transition, which `aria-disabled` avoids entirely.
+    expect(button).not.toBeDisabled();
   });
 
   it("Test 9: Loader2 spinner (animate-spin icon) is present when loading=true", () => {
@@ -136,5 +143,45 @@ describe("DownloadCVButton", () => {
     const captured = capturedPDFLinkProps as CapturedPDFLinkProps | null;
     expect(captured).not.toBeNull();
     expect(captured?.document).toBeDefined();
+  });
+
+  // Focus-retention behavior across a loading=false -> true -> false cycle.
+  // The button uses `aria-disabled` (never the native `disabled` attribute),
+  // so it must never lose focus to a browser-forced blur during the loading
+  // transition — unlike a natively disabled control, which the browser would
+  // force-blur the instant `disabled` is set.
+
+  it("Test 12: keeps focus on the button throughout a loading transition (no native-disabled forced blur)", () => {
+    const { rerender } = render(<DownloadCVButton />);
+    const button = screen.getByRole("button");
+
+    act(() => {
+      button.focus();
+    });
+    expect(button).toHaveFocus();
+
+    mockLoading = true;
+    rerender(<DownloadCVButton />);
+
+    expect(screen.getByRole("button", { name: "Generating PDF, please wait" })).toHaveFocus();
+
+    mockLoading = false;
+    rerender(<DownloadCVButton />);
+
+    expect(screen.getByRole("button", { name: "Download CV as PDF" })).toHaveFocus();
+  });
+
+  it("Test 13: does not grant focus to a button that was never focused, across a loading cycle", () => {
+    const { rerender } = render(<DownloadCVButton />);
+    const button = screen.getByRole("button");
+    expect(button).not.toHaveFocus();
+
+    mockLoading = true;
+    rerender(<DownloadCVButton />);
+
+    mockLoading = false;
+    rerender(<DownloadCVButton />);
+
+    expect(screen.getByRole("button", { name: "Download CV as PDF" })).not.toHaveFocus();
   });
 });
