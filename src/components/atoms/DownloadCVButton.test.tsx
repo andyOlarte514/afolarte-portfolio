@@ -52,7 +52,7 @@ jest.mock("@react-pdf/renderer", () => ({
   Font: { register: jest.fn() },
 }));
 
-import { render, screen } from "@testing-library/react";
+import { act, render, screen } from "@testing-library/react";
 
 import DownloadCVButton from "./DownloadCVButton";
 
@@ -136,5 +136,44 @@ describe("DownloadCVButton", () => {
     const captured = capturedPDFLinkProps as CapturedPDFLinkProps | null;
     expect(captured).not.toBeNull();
     expect(captured?.document).toBeDefined();
+  });
+
+  // Focus-restoration behavior across a loading=false -> true -> false cycle
+
+  it("Test 12: restores focus to the button after a loading cycle if it was focused right before the disable transition", () => {
+    const { rerender } = render(<DownloadCVButton />);
+    const button = screen.getByRole("button");
+
+    act(() => {
+      button.focus();
+    });
+    expect(button).toHaveFocus();
+
+    mockLoading = true;
+    rerender(<DownloadCVButton />);
+    // Simulate the browser's forced blur when a focused control becomes disabled
+    act(() => {
+      button.blur();
+    });
+    expect(button).not.toHaveFocus();
+
+    mockLoading = false;
+    rerender(<DownloadCVButton />);
+
+    expect(screen.getByRole("button", { name: "Download CV as PDF" })).toHaveFocus();
+  });
+
+  it("Test 13: does not steal focus after a loading cycle if the button was never focused beforehand", () => {
+    const { rerender } = render(<DownloadCVButton />);
+    const button = screen.getByRole("button");
+    expect(button).not.toHaveFocus();
+
+    mockLoading = true;
+    rerender(<DownloadCVButton />);
+
+    mockLoading = false;
+    rerender(<DownloadCVButton />);
+
+    expect(screen.getByRole("button", { name: "Download CV as PDF" })).not.toHaveFocus();
   });
 });
