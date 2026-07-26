@@ -1,6 +1,14 @@
 import { act, renderHook } from "@testing-library/react";
+import { createElement } from "react";
+import { hydrateRoot } from "react-dom/client";
+import { renderToString } from "react-dom/server";
 
 import { useTheme } from "./useTheme";
+
+function ThemeProbe(): React.ReactNode {
+  const { theme } = useTheme();
+  return createElement("div", { "data-testid": "theme-value" }, theme);
+}
 
 // Mock localStorage
 const localStorageMock = (() => {
@@ -134,5 +142,32 @@ describe("useTheme", () => {
 
     // After toggling to light, dark class should be removed
     expect(document.documentElement.classList.contains("dark")).toBe(false);
+  });
+
+  it("hydrates without a mismatch even when the resolved client theme differs from the server default", () => {
+    // System/stored preference resolves to "light", which differs from the
+    // deterministic server snapshot ("dark") — this is exactly the scenario
+    // that previously caused a hydration mismatch.
+    setupMatchMedia(false);
+    localStorageMock.setItem("theme", "light");
+
+    const html = renderToString(createElement(ThemeProbe));
+    expect(html).toContain("dark");
+
+    const container = document.createElement("div");
+    container.innerHTML = html;
+    document.body.appendChild(container);
+
+    const consoleErrorSpy = jest.spyOn(console, "error").mockImplementation(() => {});
+
+    act(() => {
+      hydrateRoot(container, createElement(ThemeProbe));
+    });
+
+    expect(consoleErrorSpy).not.toHaveBeenCalled();
+    expect(container.querySelector("[data-testid='theme-value']")?.textContent).toBe("light");
+
+    consoleErrorSpy.mockRestore();
+    document.body.removeChild(container);
   });
 });
