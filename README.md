@@ -84,7 +84,7 @@ Every push/PR to `main` runs, in order: type-check → lint → format check →
 
 Locally, Husky + lint-staged run ESLint + Prettier on every commit.
 
-Non-negotiables (see `CLAUDE.md`):
+Non-negotiables:
 
 - No `any` — `@typescript-eslint/no-explicit-any: error`
 - Every exported function declares its return type
