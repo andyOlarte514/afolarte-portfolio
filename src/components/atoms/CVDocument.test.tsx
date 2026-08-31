@@ -15,6 +15,8 @@ jest.mock("@react-pdf/renderer", () => ({
 
 import { render, screen } from "@testing-library/react";
 
+import { heroContent } from "@/lib/heroContent";
+
 import CVDocument from "./CVDocument";
 
 describe("CVDocument", () => {
@@ -62,7 +64,7 @@ describe("CVDocument", () => {
 
   it("Test 8: education institution SENA appears in the document", () => {
     render(<CVDocument />);
-    expect(screen.getByText("SENA")).toBeInTheDocument();
+    expect(screen.getByText(/SENA/)).toBeInTheDocument();
   });
 
   it("Test 9: education dateRange 'Ene 2014 – Jun 2016' appears in the document", () => {
@@ -127,5 +129,40 @@ describe("CVDocument", () => {
       );
     });
     expect(skillsOnlyAngular).toHaveLength(0);
+  });
+
+  it("Test 17: renders the 'Contact' section heading", () => {
+    render(<CVDocument />);
+    expect(screen.getByText("Contact")).toBeInTheDocument();
+  });
+
+  it("Test 18: renders the 'Summary' section heading", () => {
+    render(<CVDocument />);
+    expect(screen.getByText("Summary")).toBeInTheDocument();
+  });
+
+  it("Test 19: renders the 'Skills' section heading", () => {
+    render(<CVDocument />);
+    expect(screen.getByText("Skills")).toBeInTheDocument();
+  });
+
+  it("Test 20: renders the 'Experience' section heading", () => {
+    render(<CVDocument />);
+    expect(screen.getByText("Experience")).toBeInTheDocument();
+  });
+
+  it("Test 21: renders the 'Education' section heading", () => {
+    render(<CVDocument />);
+    expect(screen.getByText("Education")).toBeInTheDocument();
+  });
+
+  it("Test 22: renders a single-column document — one page containing all sections, no separate sidebar/main split", () => {
+    const { container } = render(<CVDocument />);
+    const pages = container.querySelectorAll('[data-testid="pdf-page"]');
+    expect(pages).toHaveLength(1);
+    const page = pages[0] as HTMLElement;
+    expect(page).toContainElement(screen.getByText(heroContent.name));
+    expect(page).toContainElement(screen.getByText("Contact"));
+    expect(page).toContainElement(screen.getByText("Skills"));
   });
 });
