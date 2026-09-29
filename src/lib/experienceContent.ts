@@ -2,6 +2,17 @@ import type { WorkEntry } from "@/types/experience";
 
 export const experienceContent: readonly WorkEntry[] = [
   {
+    company: "Mekan",
+    role: "Senior Frontend Developer",
+    dateRange: "Aug 2024 – Present",
+    companyInitials: "MK",
+    avatarColor: "#0891b2",
+    bullets: [
+      "2,100+ commits across a B2B automotive multi-tenant SaaS platform",
+      "Led frontend for a multi-country dealership management system serving concurrent enterprise clients",
+    ],
+  },
+  {
     company: "CodeBranch",
     role: "Senior Full-Stack Engineer",
     dateRange: "Apr 2025 – Sep 2026",
@@ -15,17 +26,6 @@ export const experienceContent: readonly WorkEntry[] = [
       "Implemented enterprise governance and security — email-based RBAC and ownership controls, NextAuth/JWT SSO with role-based access control and route-level permission middleware, and OAuth/PKCE SSO integration with encrypted token storage",
       "Established cross-repo CI/quality guardrails — architecture-boundary enforcement, database-migration drift/risk checks with auto-generated ERDs, and 100% coverage targets — and led the migration to shadcn/ui, building a custom ESLint plugin to enforce adoption",
       "Built a from-scratch onboarding tour engine, transactional email with anti-injection safeguards, and Excel export for the governance portal",
-    ],
-  },
-  {
-    company: "Mekan",
-    role: "Senior Frontend Developer",
-    dateRange: "Aug 2024 – Present",
-    companyInitials: "MK",
-    avatarColor: "#0891b2",
-    bullets: [
-      "2,100+ commits across a B2B automotive multi-tenant SaaS platform",
-      "Led frontend for a multi-country dealership management system serving concurrent enterprise clients",
     ],
   },
   {
