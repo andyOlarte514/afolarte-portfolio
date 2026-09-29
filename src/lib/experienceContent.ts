@@ -2,18 +2,19 @@ import type { WorkEntry } from "@/types/experience";
 
 export const experienceContent: readonly WorkEntry[] = [
   {
-    company: "NVIDIA",
-    role: "Frontend Engineer / Full-Stack",
+    company: "CodeBranch",
+    role: "Senior Full-Stack Engineer",
     dateRange: "Apr 2025 – Sep 2026",
-    companyInitials: "NV",
-    avatarColor: "#16a34a",
-    tags: ["Tech Lead", "Full-stack"],
+    companyInitials: "CB",
+    avatarColor: "#7c3aed",
+    tags: ["Client: NVIDIA", "Tech Lead", "Full-stack"],
     bullets: [
-      "Top contributor on a large Next.js 16 / React 19 / strict-TypeScript monorepo — 1,700+ commits and 600+ merged MRs",
-      "Built a flagship interactive capacity-planning chart with image export, a configurable download modal, combinable month/quarter axis views, and fixes for virtualized-row scroll drift",
-      "Delivered the Scenario Manager module — CRUD workflows, list/card views, filters, paginated loading states, configurable planning profiles, and constraint dialogs",
-      "Implemented NextAuth/JWT SSO with role-based access control, a reusable permission-gated component, route-level permission middleware, and session-expiry re-authentication",
-      "Led the migration to shadcn/ui, building a custom ESLint plugin to enforce adoption, plus a Playwright E2E suite backing a 100% coverage target on new code",
+      "Top contributor across three Next.js/React/Python repos for a single client engagement — 2,500+ commits and 600+ merged MRs combined",
+      "Built a flagship interactive capacity-planning chart with image export, a configurable download modal, and combinable month/quarter axis views, plus the Scenario Manager module — CRUD workflows, filters, paginated loading states, and constraint dialogs for planning profiles",
+      "Delivered a Clean Architecture Python/FastAPI backend for an LLM-agent supply-chain optimization platform — architecture-boundary enforcement via automated tests, Celery/Celery Beat async job scheduling, Redis-backed SSE for real-time streaming, and LangGraph agents orchestrating Pyomo/Gurobi solvers",
+      "Implemented enterprise governance and security — email-based RBAC and ownership controls, NextAuth/JWT SSO with role-based access control and route-level permission middleware, and OAuth/PKCE SSO integration with encrypted token storage",
+      "Established cross-repo CI/quality guardrails — architecture-boundary enforcement, database-migration drift/risk checks with auto-generated ERDs, and 100% coverage targets — and led the migration to shadcn/ui, building a custom ESLint plugin to enforce adoption",
+      "Built a from-scratch onboarding tour engine, transactional email with anti-injection safeguards, and Excel export for the governance portal",
     ],
   },
   {
