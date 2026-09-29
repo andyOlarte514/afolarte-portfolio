@@ -23,11 +23,9 @@ export const experienceContent: readonly WorkEntry[] = [
     dateRange: "Aug 2024 – Present",
     companyInitials: "MK",
     avatarColor: "#0891b2",
-    tags: ["Concurrent Role"],
     bullets: [
       "2,100+ commits across a B2B automotive multi-tenant SaaS platform",
       "Led frontend for a multi-country dealership management system serving concurrent enterprise clients",
-      "Concurrent with NVIDIA (Apr 2025 – present) — parallel lead-level contributions across two orgs",
     ],
   },
   {
