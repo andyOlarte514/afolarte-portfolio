@@ -46,9 +46,8 @@ describe("CVDocument", () => {
     expect(el).toBeInTheDocument();
   });
 
-  it("Test 6: all 7 experience company names appear in the document", () => {
+  it("Test 6: experience company names appear in the document (NVIDIA engagement now shows under CodeBranch)", () => {
     render(<CVDocument />);
-    expect(screen.getAllByText(/NVIDIA/).length).toBeGreaterThan(0);
     expect(screen.getAllByText(/Mekan/).length).toBeGreaterThan(0);
     expect(screen.getAllByText(/Redbee/).length).toBeGreaterThan(0);
     expect(screen.getAllByText(/CodeBranch/).length).toBeGreaterThan(0);

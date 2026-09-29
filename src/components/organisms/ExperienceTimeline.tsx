@@ -9,7 +9,7 @@ export default function ExperienceTimeline(): React.ReactNode {
       <h2 className="text-foreground mb-8 text-3xl font-bold">Experience</h2>
       <ol className="border-primary relative border-l-2">
         {experienceContent.map((entry) => (
-          <TimelineEntry key={entry.company} entry={entry} />
+          <TimelineEntry key={`${entry.company}-${entry.dateRange}`} entry={entry} />
         ))}
       </ol>
     </div>

@@ -21,11 +21,11 @@ describe("ExperienceTimeline", () => {
     expect(screen.getAllByTestId("timeline-entry")).toHaveLength(7);
   });
 
-  it("renders NVIDIA as the first entry", () => {
+  it("renders the consolidated CodeBranch entry (NVIDIA client) as the first entry", () => {
     render(<ExperienceTimeline />);
     const entries = screen.getAllByTestId("timeline-entry");
     // noUncheckedIndexedAccess: use non-null assertion after length check above
-    expect(entries[0]).toHaveTextContent("NVIDIA");
+    expect(entries[0]).toHaveTextContent("CodeBranch");
   });
 
   it("renders Pragma S.A. as the last entry", () => {
