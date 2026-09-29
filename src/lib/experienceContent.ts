@@ -4,16 +4,16 @@ export const experienceContent: readonly WorkEntry[] = [
   {
     company: "NVIDIA",
     role: "Frontend Engineer / Full-Stack",
-    dateRange: "Apr 2025 – Present",
+    dateRange: "Apr 2025 – Sep 2026",
     companyInitials: "NV",
     avatarColor: "#16a34a",
     tags: ["Tech Lead", "Full-stack"],
     bullets: [
-      "Migrated design system from SAP UI5 to Radix UI / shadcn over 46 commits — zero regressions",
-      "Built a custom ESLint plugin from scratch to enforce Clean Architecture boundaries across 4 teams",
-      "Authored the E2E Playwright test suite; team adopted 100% coverage mandate",
-      "1,490+ frontend commits + 219 backend commits (FastAPI / Python) — full-stack scope confirmed",
-      "Architected Thin Controller pattern and built CLI analyzer to enforce it across the backend",
+      "Top contributor on a large Next.js 16 / React 19 / strict-TypeScript monorepo — 1,700+ commits and 600+ merged MRs",
+      "Built a flagship interactive capacity-planning chart with image export, a configurable download modal, combinable month/quarter axis views, and fixes for virtualized-row scroll drift",
+      "Delivered the Scenario Manager module — CRUD workflows, list/card views, filters, paginated loading states, configurable planning profiles, and constraint dialogs",
+      "Implemented NextAuth/JWT SSO with role-based access control, a reusable permission-gated component, route-level permission middleware, and session-expiry re-authentication",
+      "Led the migration to shadcn/ui, building a custom ESLint plugin to enforce adoption, plus a Playwright E2E suite backing a 100% coverage target on new code",
     ],
   },
   {
